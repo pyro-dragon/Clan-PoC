@@ -85,7 +85,7 @@ GameObject:
   - 33: {fileID: 30794997}
   - 23: {fileID: 30794996}
   - 64: {fileID: 30794995}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Thatched cottages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a99a32caa0e3280418a920c981b91b40, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a99a32caa0e3280418a920c981b91b40, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -205,6 +205,7 @@ GameObject:
   - 114: {fileID: 277355517}
   - 114: {fileID: 277355518}
   - 114: {fileID: 277355519}
+  - 114: {fileID: 277355520}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -301,9 +302,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e8fb6b112056ea4eb5b1111ae34999b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   targetPosition: {x: 82, y: 70, z: 300}
+  seeker: {fileID: 0}
+  controller: {fileID: 0}
   speed: 500
   nextWaypointDistance: 3
+  currentWaypoint: 0
 --- !u!114 &277355519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +326,27 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 100
   nextWaypointDistance: 3
+--- !u!114 &277355520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277355512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
+  smoothType: 0
+  subdivisions: 2
+  iterations: 5
+  strength: .25
+  uniformLength: 1
+  maxSegmentLength: 1
+  bezierTangentLength: .400000006
+  offset: .200000003
+  factor: .100000001
 --- !u!1 &278542418
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,48 +413,6 @@ Transform:
   m_LocalScale: {x: 1, y: 200, z: 600}
   m_Children: []
   m_Father: {fileID: 1860119160}
---- !u!1 &579518765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 579518767}
-  - 114: {fileID: 579518766}
-  m_Layer: 0
-  m_Name: Cursor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &579518766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 579518765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c25fda84426b7e458e6e8297ec9c124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainPoint: {x: 0, y: 0}
-  selectedObject: {fileID: 0}
-  camera: {fileID: 700206091}
-  terrain: {fileID: 1708355682}
---- !u!4 &579518767
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 579518765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 117.553802, y: 88.6895752, z: 343.100861}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &621437369
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +598,80 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &782143394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 782143395}
+  - 114: {fileID: 782143397}
+  - 114: {fileID: 782143396}
+  m_Layer: 0
+  m_Name: GraphUpdater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782143395
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782143394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.2418137, y: -119.561356, z: 29.1336365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &782143396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782143394}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406217f97239e6a49a98a0f2ce7ebfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  housePrefab: {fileID: 0}
+  housePosition: {x: 0, y: 0, z: 0}
+--- !u!114 &782143397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782143394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 114.862373, y: 189.560745, z: 263.344971}
+  - {x: 113.03904, y: 189.515411, z: 251.700348}
+  - {x: 103.302299, y: 189.509979, z: 246.186798}
+  - {x: 95.5789032, y: 189.553192, z: 254.16748}
+  - {x: 97.7165604, y: 189.560745, z: 267.735382}
+  - {x: 107.510811, y: 189.560745, z: 272.971741}
+  convex: 1
+  minBoundsHeight: 1
+  penaltyDelta: 0
+  modifyWalkability: 1
+  setWalkability: 0
+  applyOnStart: 0
+  applyOnScan: 1
+  useWorldSpace: 0
+  updatePhysics: 0
+  resetPenaltyOnPhysics: 1
+  updateErosion: 1
+  lockToY: 0
+  lockToYValue: 0
+  modifyTag: 1
+  setTag: 0
 --- !u!1 &793167702
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   astarData:
     hasBeenReverted: 0
-    data: 504b030414000008080018b43b44b8c64cc2e7010000c50300000b0024006772617068302e6a736f6e0a00200000000000010018004be1bdb4af1bcf014be1bdb4af1bcf014be1bdb4af1bcf015d53cb6edb3010fc95826739b0e4aa417d4becc62d903641dca287a28715b5b20853a4c047633bf0bf77493d1c190224727676677649bdb19d17255bbeb17f203db225cb0bc4f2d3a2c2cf7c91df668b593e2f0a0e01bc4d39e7193b270c6c8bdcbd80139a2dd38419edc25a854207b69c27ec18df277a139da37268fa609677e1d9fc268d0c0288e31597d0b4586ec5097b6a3eefa8f42586d2257641cae35a4a617b49776c83f515b4d64b64092b05341825b384d52876b58bcb31eba9aa2cbae8d1c0712d0cb5138bb17bed6aaad080ddbf1b4b9e66e7a1d2f769689652a432baf9daeba4c1b5ab05dfbfc0918325a80269710aae478bd48d6f27934b2f931b0caf6ae4a4ea8cc7c1c704f2ea15e41e0a89bf6b543ff4c668afca51d95bccd6fdee1cba3baca4680a12b9f978d9de1d848dea046ca50e435de409434393ff465ee319dbe892b060eb97c59fb0b3a34e0f3f08631d056231f04e3f0ab5df18515e9803ba16d63d8a46c4c1d12187d60aed0d31d99738509a82772b6d1406b06bb74505d21d9f49cd4d8ff32a32ea5de10fc09dee86df47eed48eeeceb47ec4466a3857a1281de473178f8a342735e4293a54321e5afdb031d086ab541a78dd8853a347f742557acb0da27a8ab9bdc5069c1187f16a11fd4f9accfbe77a157f1fdafc3d9fff03504b030414000008080018b43b44287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a00200000000000010018008c7dbeb4af1bcf018c7dbeb4af1bcf018c7dbeb4af1bcf01ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b030414000008080018b43b44b877a0d57700000085000000090024006d6574612e6a736f6e0a00200000000000010018008c7dbeb4af1bcf018c7dbeb4af1bcf018c7dbeb4af1bcf011d8c310f82301046ffcbcdd8146a25b23ab01177c3d05e0fb8c12b29c5c418ffbbd4ede5cb7bdf075e94368e021d1875565a59a8604e6e5d36e8ea03770e073dc07aa27031135dd1d8b63127abbd4757c6b646c406c60af27ba5c13de95fdc5d5e2696c032ab3e71e8cb6bb12406bac55d72d1f4f8fd01504b01022d0014000008080018b43b44b8c64cc2e7010000c50300000b00240000000000000000000000000000006772617068302e6a736f6e0a00200000000000010018004be1bdb4af1bcf014be1bdb4af1bcf014be1bdb4af1bcf01504b01022d0014000008080018b43b44287e18aa43000000480000001200240000000000000000000000340200006772617068305f656469746f722e6a736f6e0a00200000000000010018008c7dbeb4af1bcf018c7dbeb4af1bcf018c7dbeb4af1bcf01504b01022d0014000008080018b43b44b877a0d577000000850000000900240000000000000000000000cb0200006d6574612e6a736f6e0a00200000000000010018008c7dbeb4af1bcf018c7dbeb4af1bcf018c7dbeb4af1bcf01504b050600000000030003001c0100008d0300000000
+    data: 504b0304140000080800f3723d44b8c64cc2e7010000c50300000b0024006772617068302e6a736f6e0a00200000000000010018009819d0b3fd1ccf019819d0b3fd1ccf019819d0b3fd1ccf015d53cb6edb3010fc95826739b0e4aa417d4becc62d903641dca287a28715b5b20853a4c047633bf0bf77493d1c190224727676677649bdb19d17255bbeb17f203db225cb0bc4f2d3a2c2cf7c91df668b593e2f0a0e01bc4d39e7193b270c6c8bdcbd80139a2dd38419edc25a854207b69c27ec18df277a139da37268fa609677e1d9fc268d0c0288e31597d0b4586ec5097b6a3eefa8f42586d2257641cae35a4a617b49776c83f515b4d64b64092b05341825b384d52876b58bcb31eba9aa2cbae8d1c0712d0cb5138bb17bed6aaad080ddbf1b4b9e66e7a1d2f769689652a432baf9daeba4c1b5ab05dfbfc0918325a80269710aae478bd48d6f27934b2f931b0caf6ae4a4ea8cc7c1c704f2ea15e41e0a89bf6b543ff4c668afca51d95bccd6fdee1cba3baca4680a12b9f978d9de1d848dea046ca50e435de409434393ff465ee319dbe892b060eb97c59fb0b3a34e0f3f08631d056231f04e3f0ab5df18515e9803ba16d63d8a46c4c1d12187d60aed0d31d99738509a82772b6d1406b06bb74505d21d9f49cd4d8ff32a32ea5de10fc09dee86df47eed48eeeceb47ec4466a3857a1281de473178f8a342735e4293a54321e5afdb031d086ab541a78dd8853a347f742557acb0da27a8ab9bdc5069c1187f16a11fd4f9accfbe77a157f1fdafc3d9fff03504b0304140000080800f3723d44287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a0020000000000001001800dab5d0b3fd1ccf01dab5d0b3fd1ccf01dab5d0b3fd1ccf01ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b0304140000080800f3723d44b877a0d57700000085000000090024006d6574612e6a736f6e0a0020000000000001001800dab5d0b3fd1ccf01dab5d0b3fd1ccf01dab5d0b3fd1ccf011d8c310f82301046ffcbcdd8146a25b23ab01177c3d05e0fb8c12b29c5c418ffbbd4ede5cb7bdf075e94368e021d1875565a59a8604e6e5d36e8ea03770e073dc07aa27031135dd1d8b63127abbd4757c6b646c406c60af27ba5c13de95fdc5d5e2696c032ab3e71e8cb6bb12406bac55d72d1f4f8fd01504b01022d00140000080800f3723d44b8c64cc2e7010000c50300000b00240000000000000000000000000000006772617068302e6a736f6e0a00200000000000010018009819d0b3fd1ccf019819d0b3fd1ccf019819d0b3fd1ccf01504b01022d00140000080800f3723d44287e18aa43000000480000001200240000000000000000000000340200006772617068305f656469746f722e6a736f6e0a0020000000000001001800dab5d0b3fd1ccf01dab5d0b3fd1ccf01dab5d0b3fd1ccf01504b01022d00140000080800f3723d44b877a0d577000000850000000900240000000000000000000000cb0200006d6574612e6a736f6e0a0020000000000001001800dab5d0b3fd1ccf01dab5d0b3fd1ccf01dab5d0b3fd1ccf01504b050600000000030003001c0100008d0300000000
     data_backup: 
     data_cachedStartup: 
     revertData: 
@@ -1250,6 +1310,7 @@ GameObject:
   - 33: {fileID: 1924487816}
   - 65: {fileID: 1924487815}
   - 23: {fileID: 1924487814}
+  - 114: {fileID: 1924487818}
   m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
@@ -1305,6 +1366,19 @@ Transform:
   m_LocalScale: {x: 1, y: 5, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &1924487818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1924487813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406217f97239e6a49a98a0f2ce7ebfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  housePrefab: {fileID: 30794994}
+  housePosition: {x: 151, y: 69, z: 294}
 --- !u!1 &2078347357
 GameObject:
   m_ObjectHideFlags: 0
