@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 	public Terrain terrain;
 	public GameObject target;
 	public Unit selectedUnit;
+	public GameObject selectIndicator;
+	public GameObject indicatePrefab;
 
 	// Use this for initialization
 	void Start () 
@@ -32,6 +34,19 @@ public class GameManager : MonoBehaviour
 	
 	public void SetSelected(Unit unit)
 	{
+		// Set the selected object
 		selectedUnit = unit;
+		
+		// Create a new indicator
+		selectIndicator = GameObject.Instantiate(indicatePrefab, selectedUnit.transform.position, Quaternion.identity) as GameObject;
+		
+		// Set the indicator as a member of the selected unit
+		selectIndicator.transform.parent = selectedUnit.transform;
+	}
+	
+	public void Deselect()
+	{
+		// Get rid of the indicator
+		Destroy(selectIndicator);
 	}
 }

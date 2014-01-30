@@ -305,12 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
-  targetPosition: {x: 82, y: 70, z: 300}
-  seeker: {fileID: 0}
-  controller: {fileID: 0}
-  speed: 500
-  nextWaypointDistance: 3
-  currentWaypoint: 0
+  m_EditorClassIdentifier: 
 --- !u!114 &277355519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,3 +1415,5 @@ MonoBehaviour:
   terrain: {fileID: 1708355682}
   target: {fileID: 1155014290}
   selectedUnit: {fileID: 0}
+  selectIndicator: {fileID: 0}
+  indicatePrefab: {fileID: 100000, guid: 4c5def680cb623b40a59b72ebb96c55e, type: 2}

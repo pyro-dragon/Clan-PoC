@@ -19,6 +19,9 @@ public class Unit : MonoBehaviour
 	
 	public void Start () 
 	{
+		// Get a link to the game manager
+		gameManager = (GameManager)GameObject.Find("GameManager").GetComponent("GameManager");
+		
 		//Get a reference to the Seeker component we added earlier
 		seeker = GetComponent<Seeker>();
 		
