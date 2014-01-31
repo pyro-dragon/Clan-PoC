@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
 	
 	public void SetSelected(Unit unit)
 	{
+        // Remove current selection
+        Deselect();
+
 		// Set the selected object
 		selectedUnit = unit;
 		
@@ -48,5 +51,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Get rid of the indicator
 		Destroy(selectIndicator);
+		
+		selectedUnit = null;
 	}
 }

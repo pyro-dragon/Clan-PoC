@@ -21,20 +21,25 @@ public class TerrainInteracter : MonoBehaviour
 		
 	}
 	
+	public void OnMouseOver()
+	{
+		// Check for are right-click
+		if(Input.GetMouseButtonUp(1))
+		{
+			print("Terrain clicked!");
+		
+			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	        Physics.Raycast(ray, out hit, Mathf.Infinity);
+			hitPoint = hit.point;
+			
+			// Transmit the location
+			manager.SetTarget(hitPoint);
+		}
+	}
+	
 	public void OnMouseUp()
 	{
-		// Find the interception point
-		//ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-        //Physics.Raycast(ray, out hit, 10000.0f, 8);   // ray is 100 units long. We are just looking at the ground layer (8)
-        //;
-		
-		print("Terrain clicked!");
-		
-		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out hit, Mathf.Infinity);
-		hitPoint = hit.point;
-		
-		// Transmit the location
-		manager.SetTarget(hitPoint);
+		// Left-click on the terrain- deselect whatever is selected
+		manager.Deselect();
 	}
 }
