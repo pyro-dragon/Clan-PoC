@@ -304,11 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
 --- !u!114 &277355519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,8 +630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406217f97239e6a49a98a0f2ce7ebfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  housePrefab: {fileID: 0}
-  housePosition: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
 --- !u!114 &782143397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,12 +799,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e8fb6b112056ea4eb5b1111ae34999b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
@@ -1530,8 +1519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406217f97239e6a49a98a0f2ce7ebfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  housePrefab: {fileID: 30794994}
-  housePosition: {x: 151, y: 69, z: 294}
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078347357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,4 +1563,4 @@ MonoBehaviour:
   target: {fileID: 1155014290}
   selectedUnit: {fileID: 0}
   selectIndicator: {fileID: 0}
-  indicatePrefab: {fileID: 100000, guid: 4c5def680cb623b40a59b72ebb96c55e, type: 2}
+  indicatePrefab: {fileID: 100000, guid: 9c703b07a1be78240be2a3dd1cab39f0, type: 2}
