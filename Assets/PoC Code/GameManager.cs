@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		// Check for a change tool event
+		
+		// Switch the tool
+		
 		
 	}
 	
