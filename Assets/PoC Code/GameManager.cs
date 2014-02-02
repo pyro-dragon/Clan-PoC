@@ -8,11 +8,15 @@ public class GameManager : MonoBehaviour
 	public Unit selectedUnit;
 	public GameObject selectIndicator;
 	public GameObject indicatePrefab;
+	Interface userInterface;
 
 	// Use this for initialization
 	void Start () 
 	{
+		// Grab the user interface
+		userInterface = new Interface();
 		
+		Debug.Log("Current tool is " + userInterface.GetCurrentTool().name);
 	}
 	
 	// Update is called once per frame
@@ -57,5 +61,11 @@ public class GameManager : MonoBehaviour
 		Destroy(selectIndicator);
 		
 		selectedUnit = null;
+	}
+	
+	// Return a reference to the user interface
+	public Interface GetUserInterface()
+	{
+		return userInterface;
 	}
 }

@@ -33,13 +33,13 @@ public class TerrainInteracter : MonoBehaviour
 			hitPoint = hit.point;
 			
 			// Transmit the location
-			manager.SetTarget(hitPoint);
+			manager.GetUserInterface().GetCurrentTool().TerrainClicked(hitPoint, true);
 		}
 	}
 	
 	public void OnMouseUp()
 	{
 		// Left-click on the terrain- deselect whatever is selected
-		manager.Deselect();
+		manager.GetUserInterface().GetCurrentTool().TerrainClicked(new Vector3(), false);
 	}
 }

@@ -34,7 +34,8 @@ public class Unit : MonoBehaviour
 	{
 		print("Unit clicked!");
 		
-		gameManager.SetSelected(this);
+		//gameManager.SetSelected(this);
+		gameManager.GetUserInterface().GetCurrentTool().UnitClicked(this, false);
 	}
 	
 	// When the mouse is clicked over the unit
@@ -42,7 +43,8 @@ public class Unit : MonoBehaviour
 	{
 		print("Unit clicked! {UP}");
 		
-		gameManager.SetSelected(this);
+		//gameManager.SetSelected(this);
+		gameManager.GetUserInterface().GetCurrentTool().UnitClicked(this, false);
 	}
 	
 	// The function to perform when a valid path is found

@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\Tools\PointerTool.cs">
+    <Files>
+      <File FileName="Assets\PoC Code\GameManager.cs" Line="31" Column="6" />
+      <File FileName="Assets\PoC Code\Tools\SelecterTool.cs" Line="74" Column="4" />
+      <File FileName="Assets\PoC Code\Tools\PointerTool.cs" Line="11" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
