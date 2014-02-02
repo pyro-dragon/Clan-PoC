@@ -15,18 +15,25 @@ public class GameManager : MonoBehaviour
 	{
 		// Grab the user interface
 		userInterface = new Interface();
-		
-		Debug.Log("Current tool is " + userInterface.GetCurrentTool().name);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		// Check for a change tool event
-		
-		// Switch the tool
-		
-		
+		if(Input.GetKeyUp(KeyCode.LeftControl))
+		{
+			// Switch the tool
+			Debug.Log("Output of CompareTo: " + userInterface.currentToolName.CompareTo("select"));
+			if(userInterface.currentToolName.CompareTo("select") == 0)
+			{
+				userInterface.ChangeTool("build");
+			}
+			else
+			{
+				userInterface.ChangeTool("select");
+			}
+		}
 	}
 	
 	public void SetTarget(Vector3 location)
