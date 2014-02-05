@@ -20,6 +20,16 @@ public class BuilderTool : PointerTool
 	{
 		
 	}
+	
+	public override void MouseOver(GameObject gameObject, Vector3 position)
+	{
+		
+	}
+	
+	public override void MouseExit(GameObject gameObject, Vector3 position)
+	{
+		
+	}
 		
 	// A unit has been clicked
 	public override void UnitClicked(Unit unit, bool rightClick)

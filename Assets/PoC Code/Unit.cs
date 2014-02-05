@@ -36,6 +36,7 @@ public class Unit : MonoBehaviour
 		
 		//gameManager.SetSelected(this);
 		gameManager.GetUserInterface().GetCurrentTool().UnitClicked(this, false);
+		//gameManager.GetUserInterface().GetCurrentTool().Click(this, this.transform.position, false);
 	}
 	
 	// When the mouse is clicked over the unit
