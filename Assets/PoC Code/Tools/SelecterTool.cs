@@ -5,7 +5,6 @@ using System.Collections;
 public class SelecterTool : PointerTool
 {
 	Unit selectedUnit;		// Selected unit
-	GameObject selectedObject; 
 	GameObject indicator;	// The indicator (used to show the selected unit)
 	GameObject targetMarker;// An object to show the current pathfinding target
 	
@@ -22,7 +21,8 @@ public class SelecterTool : PointerTool
 	// A general click function
 	public override void Click(GameObject gameObject, Vector3 position, bool rightClick)
 	{
-		if(gameObject.GetType().ToString() == "Unit")
+		// Check if we have selected a unit
+		if(gameObject.GetComponent("Unit"))
 		{
 			// Check the type of the click
 			if(!rightClick)
@@ -31,14 +31,30 @@ public class SelecterTool : PointerTool
 				Deselect();
 		
 				// Set the selected object
-				selectedObject = gameObject;
+				selectedUnit = gameObject.GetComponent("Unit") as Unit;
 		
 				// Create a new indicator
 				indicator = GameObject.Instantiate(Resources.Load("IndicatorPrefab")) as GameObject;
 		
 				// Set the indicator as a member of the selected unit
-				indicator.transform.position = selectedObject.transform.position;
-				indicator.transform.parent = selectedObject.transform;
+				indicator.transform.position = selectedUnit.transform.position;
+				indicator.transform.parent = selectedUnit.transform;
+			}
+		}
+		
+		// Otherwise check for a terrain click
+		else if(gameObject.GetComponent("TerrainInteracter"))
+		{
+			// Check the type of click
+			if(rightClick)
+			{
+				// Right-click, send the unit to the target location
+				SetTarget(position);
+			}
+			else
+			{
+				// Left-click, deselect the current unit
+				Deselect();
 			}
 		}
 	}
@@ -51,51 +67,6 @@ public class SelecterTool : PointerTool
 	public override void MouseExit(GameObject gameObject, Vector3 position)
 	{
 		
-	}
-		
-	// A unit has been clicked
-	public override void UnitClicked(Unit unit, bool rightClick)
-	{
-		Debug.Log("Clicked item: " + unit.GetType());
-		
-		GameObject obj = (GameObject)unit; 
-		
-		Debug.Log("Clicked item: " + obj.GetType());
-		
-		
-		// Check the type of the click
-		if(!rightClick)
-		{
-			// Remove current selection
-			Deselect();
-	
-			// Set the selected object
-			selectedUnit = unit;
-	
-			// Create a new indicator
-			indicator = GameObject.Instantiate(Resources.Load("IndicatorPrefab")) as GameObject;
-	
-			// Set the indicator as a member of the selected unit
-			indicator.transform.position = selectedUnit.transform.position;
-			indicator.transform.parent = selectedUnit.transform;
-		}
-	}
-		
-	// The terrain has been clicked
-	public override void TerrainClicked(Vector3 position, bool righClick)
-	{
-		
-		// Check the type of click
-		if(righClick)
-		{
-			// Right-click, send the unit to the target location
-			SetTarget(position);
-		}
-		else
-		{
-			// Left-click, deselect the current unit
-			Deselect();
-		}
 	}
 		
 	// Deselect the current unit
@@ -116,5 +87,8 @@ public class SelecterTool : PointerTool
 		// Initialise pathfinding order
 		if(selectedUnit)
 			selectedUnit.SetNewTarget(location);
+		
+		//if(selectedObject)
+		//	selectedObject.SetNewTarget(location);
 	}
 }

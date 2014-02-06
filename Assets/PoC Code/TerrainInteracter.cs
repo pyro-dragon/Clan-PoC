@@ -26,20 +26,21 @@ public class TerrainInteracter : MonoBehaviour
 		// Check for are right-click
 		if(Input.GetMouseButtonUp(1))
 		{
-			print("Terrain clicked!");
-		
-			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-	        Physics.Raycast(ray, out hit, Mathf.Infinity);
-			hitPoint = hit.point;
-			
 			// Transmit the location
-			manager.GetUserInterface().GetCurrentTool().TerrainClicked(hitPoint, true);
+			manager.GetUserInterface().GetCurrentTool().Click(this.gameObject, GetIntersectionPoint(), true);
 		}
 	}
 	
 	public void OnMouseUp()
 	{
 		// Left-click on the terrain- deselect whatever is selected
-		manager.GetUserInterface().GetCurrentTool().TerrainClicked(new Vector3(), false);
+		manager.GetUserInterface().GetCurrentTool().Click(this.gameObject, GetIntersectionPoint(), false);
+	}
+	
+	public Vector3 GetIntersectionPoint()
+	{
+		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	    Physics.Raycast(ray, out hit, Mathf.Infinity);
+		return hit.point;
 	}
 }

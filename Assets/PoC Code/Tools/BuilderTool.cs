@@ -18,7 +18,11 @@ public class BuilderTool : PointerTool
 	// A general click command
 	public override void Click(GameObject gameObject, Vector3 position, bool rightClick)
 	{
-		
+		// Check for left-click
+		if(!rightClick)
+		{
+			GameObject testHouse = GameObject.Instantiate(Resources.Load("Thatched cottages/Thatched cottages"), position, Quaternion.identity) as GameObject;
+		}
 	}
 	
 	public override void MouseOver(GameObject gameObject, Vector3 position)
@@ -29,20 +33,5 @@ public class BuilderTool : PointerTool
 	public override void MouseExit(GameObject gameObject, Vector3 position)
 	{
 		
-	}
-		
-	// A unit has been clicked
-	public override void UnitClicked(Unit unit, bool rightClick)
-	{
-		
-	}
-		
-	// The terrain has been clicked
-	public override void TerrainClicked(Vector3 position, bool rightClick)
-	{
-		// Terrain has been clicked. Place the building
-		GameObject testHouse = GameObject.Instantiate(Resources.Load("Thatched cottages/Thatched cottages"), position, Quaternion.identity) as GameObject;
-		
-		//testHouse.transform.position = position;
 	}
 }
