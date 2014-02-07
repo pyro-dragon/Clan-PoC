@@ -21,7 +21,11 @@ public class BuilderTool : PointerTool
 		// Check for left-click
 		if(!rightClick)
 		{
-			GameObject testHouse = GameObject.Instantiate(Resources.Load("Thatched cottages/Thatched cottages"), position, Quaternion.identity) as GameObject;
+			Quaternion rotation = Quaternion.AngleAxis(270, Vector3.right);
+			//rotation
+			//rotation.Set(270, 0, 0, 1);
+			GameObject testHouse = GameObject.Instantiate(Resources.Load("Thatched cottages/Thatched cottages"), position, Quaternion.AngleAxis(270, Vector3.right)) as GameObject;
+			//testHouse.transform.rotation.Set(270, 0, 0, 0);
 		}
 	}
 	
