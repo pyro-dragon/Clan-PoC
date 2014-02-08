@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\Resource Management\ResourceHarvester.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\Unit.cs">
     <Files>
-      <File FileName="Assets\PoC Code\Resource Management\ResourcePool.cs" Line="45" Column="26" />
-      <File FileName="Assets\PoC Code\Resource Management\ResourceSource.cs" Line="13" Column="3" />
-      <File FileName="Assets\PoC Code\Resource Management\ResourceDepot.cs" Line="28" Column="41" />
-      <File FileName="Assets\PoC Code\Resource Management\ResourceHarvester.cs" Line="25" Column="3" />
+      <File FileName="Assets\PoC Code\Harvester.cs" Line="40" Column="27" />
+      <File FileName="Assets\PoC Code\Unit.cs" Line="24" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
