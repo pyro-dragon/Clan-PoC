@@ -21,6 +21,7 @@ public class Harvester : MonoBehaviour {
 	
 	public GameObject targetResource;	// The currently targeted resource point
 	public GameObject targetDepot;		// The currently used resource depot. 
+	GameManager gameManager;
 	
 	int resourceStore;
 	string resourceType;
@@ -30,7 +31,10 @@ public class Harvester : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		unitComponent = this.gameObject.GetComponent("Unit");
+		unitComponent = this.gameObject.GetComponent("Unit") as Unit;
+		
+		// Add the deligates
+		unitComponent.pathComplete += PathComplete;
 	}
 	
 	// Update is called once per frame
@@ -46,13 +50,13 @@ public class Harvester : MonoBehaviour {
 	}
 	
 	// The harvesting deligate to give to the unit on path completion
-	void PathComplete()
+	void PathComplete(GameObject navTarget)
 	{
 		// Check if we are harvesting (so as not to execute on every path complete)
-		if(harvesting)
+		if(navTarget.GetComponent("ResourceDeposit"))
 		{
 			// Take resources from the resource deposit
-			resourceStore = (ResourceDeposit)targetResource.GetComponent("ResourceComponent").TakeResource(10);
+			resourceStore = ((ResourceDeposit)targetResource.GetComponent("ResourceDeposit")).TakeResource(10);
 			
 			// Head back to the resource store
 			unitComponent.SetNavTarget(targetDepot);

@@ -19,7 +19,10 @@ public class Unit : MonoBehaviour
 	private GameObject navTarget;	// An object to head towards
 	
 	// Deligates
-	public delegate void PathComplete();
+	public delegate void PathComplete(GameObject target);
+	public PathComplete pathComplete;
+	public delegate void TargetSet(GameObject target);
+	public TargetSet targetSet;
 	
 	public void Start () 
 	{
@@ -68,7 +71,8 @@ public class Unit : MonoBehaviour
 		if(currentWaypoint >= path.vectorPath.Count)
 		{
 			//Debug.Log("End of path reached");
-			PathComplete();
+			if(pathComplete != null)
+				pathComplete(navTarget);
 			return;
 		}
 		
@@ -99,7 +103,7 @@ public class Unit : MonoBehaviour
 	public void SetNavTarget(Vector3 navTarget)
 	{
 		// Clear the current nav target
-		navTarget = null;
+		this.navTarget = null;
 		
 		// Set the target position
 		targetPosition = navTarget;
@@ -119,6 +123,12 @@ public class Unit : MonoBehaviour
 		
 		// Create a new path
 		seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+		
+		// Execute the delegate
+		if(targetSet != null)
+		{
+			targetSet(navTarget);
+		}
 	}
 	
 	// Set a new target location (obsolete)

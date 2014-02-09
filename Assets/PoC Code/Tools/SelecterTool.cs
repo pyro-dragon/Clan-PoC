@@ -57,6 +57,18 @@ public class SelecterTool : PointerTool
 				Deselect();
 			}
 		}
+		
+		// Otherwise check for a resource click (and we have a selected unit)
+		// NOTE: Could probably just pass any other game object in here in future
+		else if(gameObject.GetComponent("ResourceDeposit") && selectedUnit != null)
+		{
+			// Check the type of click
+			if(rightClick)
+			{
+				// Right-click, send the unit to the target location
+				selectedUnit.SetNavTarget(gameObject);
+			}
+		}
 	}
 	
 	public override void MouseOver(GameObject gameObject, Vector3 position)
