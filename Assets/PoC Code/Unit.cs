@@ -16,6 +16,10 @@ public class Unit : MonoBehaviour
 	public float nextWaypointDistance = 3;	// The max distance from the AI to a waypoint for it to continue to the next waypoint
 	private int currentWaypoint = 0;	// The waypoint we are currently moving towards
 	private Seeker seeker;	// The path seeker
+	private GameObject navTarget;	// An object to head towards
+	
+	// Deligates
+	public delegate void PathComplete();
 	
 	public void Start () 
 	{
@@ -64,6 +68,7 @@ public class Unit : MonoBehaviour
 		if(currentWaypoint >= path.vectorPath.Count)
 		{
 			//Debug.Log("End of path reached");
+			PathComplete();
 			return;
 		}
 		
@@ -90,7 +95,33 @@ public class Unit : MonoBehaviour
 		//seeker.pathCallback -= OnPathComplete;
 	}
 	
-	// Set a new target location
+	// Set the target to navigate to
+	public void SetNavTarget(Vector3 navTarget)
+	{
+		// Clear the current nav target
+		navTarget = null;
+		
+		// Set the target position
+		targetPosition = navTarget;
+		
+		// Create a new path
+		seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+	}
+	
+	// Overloaded to take an object to navigate to (for following or other advanced pathfinding
+	public void SetNavTarget(GameObject navTarget)
+	{
+		// Clear the current nav target
+		this.navTarget = navTarget;
+		
+		// Set the target position
+		targetPosition = navTarget.transform.position;
+		
+		// Create a new path
+		seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+	}
+	
+	// Set a new target location (obsolete)
 	public void SetNewTarget(Vector3 target)
 	{
 		// Set the target position

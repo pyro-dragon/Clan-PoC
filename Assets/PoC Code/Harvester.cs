@@ -22,7 +22,11 @@ public class Harvester : MonoBehaviour {
 	public GameObject targetResource;	// The currently targeted resource point
 	public GameObject targetDepot;		// The currently used resource depot. 
 	
+	int resourceStore;
+	string resourceType;
+	
 	public Unit unitComponent;	// The unit component
+	public bool harvesting;		// Are we currently harvesting?
 	
 	// Use this for initialization
 	void Start () {
@@ -38,6 +42,20 @@ public class Harvester : MonoBehaviour {
 	public void StartHarvesting()
 	{
 		// Set the pathing off. 
-		unitComponent.SetNewTarget(targetResource.transform.position);
+		unitComponent.SetNavTarget(targetResource);
+	}
+	
+	// The harvesting deligate to give to the unit on path completion
+	void PathComplete()
+	{
+		// Check if we are harvesting (so as not to execute on every path complete)
+		if(harvesting)
+		{
+			// Take resources from the resource deposit
+			resourceStore = (ResourceDeposit)targetResource.GetComponent("ResourceComponent").TakeResource(10);
+			
+			// Head back to the resource store
+			unitComponent.SetNavTarget(targetDepot);
+		}
 	}
 }

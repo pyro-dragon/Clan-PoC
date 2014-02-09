@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   drawGizmos: 1
   detailedGizmos: 0
   saveGetNearestHints: 1
@@ -301,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b159272c2490b240af5f1cecf42d0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   gameManager: {fileID: 2078347359}
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 100
@@ -315,6 +317,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   priority: 1
   smoothType: 0
@@ -615,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   points:
   - {x: 114.862373, y: 189.560745, z: 263.344971}
   - {x: 113.03904, y: 189.515411, z: 251.700348}
@@ -735,6 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   priority: 1
   smoothType: 0
   subdivisions: 2
@@ -756,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b159272c2490b240af5f1cecf42d0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   gameManager: {fileID: 2078347359}
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 100
@@ -770,6 +776,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   drawGizmos: 1
   detailedGizmos: 0
@@ -938,6 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   astarData:
     hasBeenReverted: 0
     data: 504b0304140000080800e3703f44b8c64cc2e7010000c50300000b0024006772617068302e6a736f6e0a0020000000000001001800773f19b98d1ecf01773f19b98d1ecf01773f19b98d1ecf015d53cb6edb3010fc95826739b0e4aa417d4becc62d903641dca287a28715b5b20853a4c047633bf0bf77493d1c190224727676677649bdb19d17255bbeb17f203db225cb0bc4f2d3a2c2cf7c91df668b593e2f0a0e01bc4d39e7193b270c6c8bdcbd80139a2dd38419edc25a854207b69c27ec18df277a139da37268fa609677e1d9fc268d0c0288e31597d0b4586ec5097b6a3eefa8f42586d2257641cae35a4a617b49776c83f515b4d64b64092b05341825b384d52876b58bcb31eba9aa2cbae8d1c0712d0cb5138bb17bed6aaad080ddbf1b4b9e66e7a1d2f769689652a432baf9daeba4c1b5ab05dfbfc0918325a80269710aae478bd48d6f27934b2f931b0caf6ae4a4ea8cc7c1c704f2ea15e41e0a89bf6b543ff4c668afca51d95bccd6fdee1cba3baca4680a12b9f978d9de1d848dea046ca50e435de409434393ff465ee319dbe892b060eb97c59fb0b3a34e0f3f08631d056231f04e3f0ab5df18515e9803ba16d63d8a46c4c1d12187d60aed0d31d99738509a82772b6d1406b06bb74505d21d9f49cd4d8ff32a32ea5de10fc09dee86df47eed48eeeceb47ec4466a3857a1281de473178f8a342735e4293a54321e5afdb031d086ab541a78dd8853a347f742557acb0da27a8ab9bdc5069c1187f16a11fd4f9accfbe77a157f1fdafc3d9fff03504b0304140000080800e3703f44287e18aa4300000048000000120024006772617068305f656469746f722e6a736f6e0a0020000000000001001800773f19b98d1ecf01773f19b98d1ecf01773f19b98d1ecf01ab56cac94fce4e4d51b22a292a4dd5512acec82f77ad28294a54b24a4bcc29068a94a456949416a58665166726e5a4c2d4156496e59728592939a7e695a41629d50200504b0304140000080800e3703f44b877a0d57700000085000000090024006d6574612e6a736f6e0a0020000000000001001800773f19b98d1ecf01773f19b98d1ecf01773f19b98d1ecf011d8c310f82301046ffcbcdd8146a25b23ab01177c3d05e0fb8c12b29c5c418ffbbd4ede5cb7bdf075e94368e021d1875565a59a8604e6e5d36e8ea03770e073dc07aa27031135dd1d8b63127abbd4757c6b646c406c60af27ba5c13de95fdc5d5e2696c032ab3e71e8cb6bb12406bac55d72d1f4f8fd01504b01022d00140000080800e3703f44b8c64cc2e7010000c50300000b00240000000000000000000000000000006772617068302e6a736f6e0a0020000000000001001800773f19b98d1ecf01773f19b98d1ecf01773f19b98d1ecf01504b01022d00140000080800e3703f44287e18aa43000000480000001200240000000000000000000000340200006772617068305f656469746f722e6a736f6e0a0020000000000001001800773f19b98d1ecf01773f19b98d1ecf01773f19b98d1ecf01504b01022d00140000080800e3703f44b877a0d577000000850000000900240000000000000000000000cb0200006d6574612e6a736f6e0a0020000000000001001800773f19b98d1ecf01773f19b98d1ecf01773f19b98d1ecf01504b050600000000030003001c0100008d0300000000
@@ -1088,6 +1096,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 465687f8f8927c946aa54bb2953a1d2e, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   manager: {fileID: 2078347359}
   hitPoint: {x: 0, y: 0, z: 0}
@@ -1422,6 +1431,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2d2a2854ec456347a284e4db35d2c5d, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   terrain: {fileID: 1708355682}
   target: {fileID: 0}
