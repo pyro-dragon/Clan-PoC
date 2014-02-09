@@ -85,6 +85,7 @@ GameObject:
   - 33: {fileID: 30794997}
   - 23: {fileID: 30794996}
   - 64: {fileID: 30794995}
+  - 114: {fileID: 30794999}
   m_Layer: 0
   m_Name: Thatched cottages
   m_TagString: Untagged
@@ -143,6 +144,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2.86138105}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &30794999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30794994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef30d36bc111e7144bd631e63885f3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &152808356
 Prefab:
   m_ObjectHideFlags: 0

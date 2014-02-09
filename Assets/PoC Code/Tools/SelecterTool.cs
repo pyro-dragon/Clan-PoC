@@ -60,7 +60,8 @@ public class SelecterTool : PointerTool
 		
 		// Otherwise check for a resource click (and we have a selected unit)
 		// NOTE: Could probably just pass any other game object in here in future
-		else if(gameObject.GetComponent("ResourceDeposit") && selectedUnit != null)
+		//else if(gameObject.GetComponent("ResourceDeposit") && selectedUnit != null)
+		else if(selectedUnit != null)
 		{
 			// Check the type of click
 			if(rightClick)

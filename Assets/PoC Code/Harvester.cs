@@ -53,7 +53,7 @@ public class Harvester : MonoBehaviour {
 	void PathComplete(GameObject navTarget)
 	{
 		// Check if we are harvesting (so as not to execute on every path complete)
-		if(navTarget.GetComponent("ResourceDeposit"))
+		if(navTarget!= null && navTarget.GetComponent("ResourceDeposit"))
 		{
 			// Take resources from the resource deposit
 			resourceStore = ((ResourceDeposit)targetResource.GetComponent("ResourceDeposit")).TakeResource(10);
