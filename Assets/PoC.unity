@@ -331,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2078347359}
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 100
+  speed: 300
   nextWaypointDistance: 3
 --- !u!114 &277355520
 MonoBehaviour:

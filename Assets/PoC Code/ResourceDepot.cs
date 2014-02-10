@@ -16,7 +16,7 @@ public class ResourceDepot : MonoBehaviour {
 	}
 	
 	// Receive resources and put them in the inventory, reterning any that are abouve the capacity. 
-	public int ReceiveResources(int resourceAmount)
+	public int DropOff(int resourceAmount)
 	{
 		storedResource += resourceAmount;
 		

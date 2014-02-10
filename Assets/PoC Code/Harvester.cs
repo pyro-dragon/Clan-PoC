@@ -52,14 +52,24 @@ public class Harvester : MonoBehaviour {
 	// The harvesting deligate to give to the unit on path completion
 	void PathComplete(GameObject navTarget)
 	{
-		// Check if we are harvesting (so as not to execute on every path complete)
-		if(navTarget!= null && navTarget.GetComponent("ResourceDeposit"))
+		if(navTarget!= null)
 		{
-			// Take resources from the resource deposit
-			resourceStore = ((ResourceDeposit)targetResource.GetComponent("ResourceDeposit")).TakeResource(10);
-			
-			// Head back to the resource store
-			unitComponent.SetNavTarget(targetDepot);
+			if(navTarget.GetComponent("ResourceDeposit"))
+			{
+				// Take resources from the resource deposit
+				resourceStore = ((ResourceDeposit)targetResource.GetComponent("ResourceDeposit")).TakeResource(10);
+				
+				// Head back to the resource store
+				unitComponent.SetNavTarget(targetDepot);
+			}
+			else if(navTarget.GetComponent("ResourceDepot"))
+			{
+				// Drop off the load
+				resourceStore = ((ResourceDepot)targetDepot.GetComponent("ResourceDepot")).DropOff(resourceStore);
+				
+				// Head back to the resource 
+				unitComponent.SetNavTarget(targetResource);
+			}
 		}
 	}
 }
