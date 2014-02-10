@@ -70,7 +70,11 @@ public class Unit : MonoBehaviour
 		
 		if(currentWaypoint >= path.vectorPath.Count)
 		{
-			//Debug.Log("End of path reached");
+			Debug.Log("End of path reached");
+			
+			// Nullify the path
+			path = null;
+			
 			if(pathComplete != null)
 				pathComplete(navTarget);
 			return;
