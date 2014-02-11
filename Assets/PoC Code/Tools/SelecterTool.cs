@@ -99,7 +99,7 @@ public class SelecterTool : PointerTool
 			
 		// Initialise pathfinding order
 		if(selectedUnit)
-			selectedUnit.SetNewTarget(location);
+			selectedUnit.SetNavTarget(location);
 		
 		//if(selectedObject)
 		//	selectedObject.SetNewTarget(location);

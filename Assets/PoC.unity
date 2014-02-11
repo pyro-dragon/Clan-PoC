@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef30d36bc111e7144bd631e63885f3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capacity: 100
 --- !u!1001 &152808356
 Prefab:
   m_ObjectHideFlags: 0
@@ -314,8 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bc0b1dfe764b542ab38fc783fe0769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetResource: {fileID: 1619847134}
-  targetDepot: {fileID: 30794994}
+  targetResource: {fileID: 0}
+  targetDepot: {fileID: 0}
   unitComponent: {fileID: 0}
   harvesting: 0
 --- !u!114 &277355519

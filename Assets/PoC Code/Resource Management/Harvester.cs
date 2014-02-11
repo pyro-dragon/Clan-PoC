@@ -19,8 +19,8 @@ public class Harvester : MonoBehaviour {
 	//	6a. If yes, go to 1. 
 	// 	6b. If no, go to 5. 
 	
-	public GameObject targetResource;	// The currently targeted resource point
-	public GameObject targetDepot;		// The currently used resource depot. 
+	public ResourceDeposit targetResource;	// The currently targeted resource point
+	public ResourceDepot targetDepot;		// The currently used resource depot. 
 	GameManager gameManager;
 	
 	int resourceStore;
@@ -35,6 +35,7 @@ public class Harvester : MonoBehaviour {
 		
 		// Add the deligates
 		unitComponent.pathComplete += PathComplete;
+		unitComponent.targetSet += TargetSet;
 	}
 	
 	// Update is called once per frame
@@ -46,7 +47,7 @@ public class Harvester : MonoBehaviour {
 	public void StartHarvesting()
 	{
 		// Set the pathing off. 
-		unitComponent.SetNavTarget(targetResource);
+		unitComponent.SetNavTarget(targetResource.gameObject);
 	}
 	
 	// The harvesting deligate to give to the unit on path completion
@@ -54,13 +55,37 @@ public class Harvester : MonoBehaviour {
 	{
 		if(navTarget!= null)
 		{
+			Debug.Log("Nav Target not null");
+			
 			if(navTarget.GetComponent("ResourceDeposit"))
 			{
 				// Take resources from the resource deposit
-				resourceStore = ((ResourceDeposit)targetResource.GetComponent("ResourceDeposit")).TakeResource(10);
+				resourceStore = targetResource.TakeResource(10);
 				
-				// Head back to the resource store
-				unitComponent.SetNavTarget(targetDepot);
+				// Check if we can still use the current depot (not null and not full)
+				if(targetDepot == null || targetDepot.AtCapacity())
+				{
+					Debug.Log("Target depot is null or full, searching for a new one... ");
+					
+					// Find a new depot
+					ResourceDepot[] depotList = GameObject.FindObjectsOfType(typeof(ResourceDepot)) as ResourceDepot[];
+					ResourceDepot closestDepot = depotList[0];
+					float closestDistance = Vector3.Distance(transform.position, closestDepot.transform.position);
+					foreach(ResourceDepot depot in depotList)
+					{
+						// Check if the next depot is full and closer than the last depot
+						if(!depot.AtCapacity() && (closestDistance > Vector3.Distance(transform.position, depot.transform.position)))
+						{
+							closestDepot = depot;
+						}
+					}
+					
+					// Assign the new depot
+					targetDepot = closestDepot;
+				}
+				
+				// Head back to the depot
+				unitComponent.SetNavTarget(targetDepot.gameObject);
 				
 				Debug.Log("Pathing back to depot");
 			}
@@ -70,10 +95,22 @@ public class Harvester : MonoBehaviour {
 				resourceStore = ((ResourceDepot)targetDepot.GetComponent("ResourceDepot")).DropOff(resourceStore);
 				
 				// Head back to the resource 
-				unitComponent.SetNavTarget(targetResource);
+				unitComponent.SetNavTarget(targetResource.gameObject);
 				
 				Debug.Log("Pathing back to resource");
 			}
+		}
+	}
+	
+	void TargetSet(GameObject targetObject)
+	{
+		if(targetObject.GetComponent("ResourceDeposit"))
+		{
+			targetResource = targetObject.GetComponent("ResourceDeposit") as ResourceDeposit;
+		}
+		else if(targetObject.GetComponent("ResourceDepot"))
+		{
+			targetDepot = targetObject.GetComponent("ResourceDepot") as ResourceDepot;
 		}
 	}
 }

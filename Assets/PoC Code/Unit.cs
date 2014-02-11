@@ -68,6 +68,7 @@ public class Unit : MonoBehaviour
 			return;
 		}
 		
+		// Check if we have reached the end of the path
 		if(currentWaypoint >= path.vectorPath.Count)
 		{
 			Debug.Log("End of path reached");
@@ -108,6 +109,7 @@ public class Unit : MonoBehaviour
 	{
 		// Clear the current nav target
 		this.navTarget = null;
+		Debug.Log("Setting nav target to null");
 		
 		// Set the target position
 		targetPosition = navTarget;
@@ -136,12 +138,12 @@ public class Unit : MonoBehaviour
 	}
 	
 	// Set a new target location (obsolete)
-	public void SetNewTarget(Vector3 target)
-	{
+	//public void SetNewTarget(Vector3 target)
+	//{
 		// Set the target position
-		targetPosition = target;
+	//	targetPosition = target;
 		
 		// Create a new path
-		seeker.StartPath(transform.position, targetPosition, OnPathComplete);
-	}
+	//	seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+	//}
 }

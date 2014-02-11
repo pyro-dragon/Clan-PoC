@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 		
 		// Initialise pathfinding order
 		if(selectedUnit)
-			selectedUnit.SetNewTarget(location);
+			selectedUnit.SetNavTarget(location);
 	}
 	
 	public void SetSelected(Unit unit)
