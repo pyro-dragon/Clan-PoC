@@ -374,6 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetResource: {fileID: 0}
   targetDepot: {fileID: 0}
+  resourceStore: 0
+  resourceType: 
   unitComponent: {fileID: 0}
   harvesting: 0
 --- !u!114 &277355519

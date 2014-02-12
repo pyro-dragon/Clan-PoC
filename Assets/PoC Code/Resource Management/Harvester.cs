@@ -23,8 +23,8 @@ public class Harvester : MonoBehaviour {
 	public ResourceDepot targetDepot;		// The currently used resource depot. 
 	GameManager gameManager;
 	
-	int resourceStore;
-	string resourceType;
+	public int resourceStore;
+	public string resourceType;
 	
 	public Unit unitComponent;	// The unit component
 	public bool harvesting;		// Are we currently harvesting?
@@ -81,7 +81,18 @@ public class Harvester : MonoBehaviour {
 					}
 					
 					// Assign the new depot
-					targetDepot = closestDepot;
+					
+					// Check to see if the defaulted first depot in the list is not full if that happens to have been the only one available
+					if(closestDepot.AtCapacity())
+					{
+						// Closest depot is full and there are no others. Stop everything. 
+						targetDepot = null;	
+						Debug.Log("Everything is terrible D:");
+						return;
+					}
+					
+						// All is well, proceed to assign the new depot
+						targetDepot = closestDepot;
 				}
 				
 				// Head back to the depot
