@@ -55,7 +55,7 @@ public class Harvester : MonoBehaviour {
 	{
 		if(navTarget!= null)
 		{
-			Debug.Log("Nav Target not null");
+			//Debug.Log("Nav Target not null");
 			
 			if(navTarget.GetComponent("ResourceDeposit"))
 			{
@@ -87,7 +87,7 @@ public class Harvester : MonoBehaviour {
 				// Head back to the depot
 				unitComponent.SetNavTarget(targetDepot.gameObject);
 				
-				Debug.Log("Pathing back to depot");
+				//Debug.Log("Pathing back to depot");
 			}
 			else if(navTarget.GetComponent("ResourceDepot"))
 			{
@@ -97,7 +97,7 @@ public class Harvester : MonoBehaviour {
 				// Head back to the resource 
 				unitComponent.SetNavTarget(targetResource.gameObject);
 				
-				Debug.Log("Pathing back to resource");
+				//Debug.Log("Pathing back to resource");
 			}
 		}
 	}

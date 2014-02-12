@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ResourceDepot : MonoBehaviour {
-	
+public class ResourceDepot : MonoBehaviour 
+{	
 	public int capacity;
-	int storedResource;
+	public int storedResource;
 	GameManager gameManager;
 	
 	// Use this for initialization
@@ -49,9 +49,16 @@ public class ResourceDepot : MonoBehaviour {
 	// Check if we are at capacity
 	public bool AtCapacity()
 	{
-		if(storedResource < capacity)
-			return false;
-		else
+		Debug.Log("Checking capacity");
+		if(storedResource == capacity)
+		{
+			Debug.Log("storedResource is equel to capacity");
 			return true;
+		}
+		else
+		{
+			Debug.Log("stored = " + storedResource + "\ncapacity = " + capacity);
+			return false;
+		}
 	}
 }
