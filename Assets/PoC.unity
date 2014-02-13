@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef30d36bc111e7144bd631e63885f3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 10
+  capacity: 5
   storedResource: 0
 --- !u!64 &1979250996
 MeshCollider:

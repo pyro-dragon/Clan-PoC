@@ -38,7 +38,7 @@ public class ResourceDepot : MonoBehaviour
 		if(storedResource > capacity)
 		{
 			// Reject excess resources
-			int excess = capacity - storedResource;
+			int excess = storedResource - capacity;
 			storedResource = capacity; 
 			return excess;
 		}

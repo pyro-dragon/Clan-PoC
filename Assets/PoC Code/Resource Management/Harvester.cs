@@ -65,34 +65,11 @@ public class Harvester : MonoBehaviour {
 				// Check if we can still use the current depot (not null and not full)
 				if(targetDepot == null || targetDepot.AtCapacity())
 				{
-					Debug.Log("Target depot is null or full, searching for a new one... ");
+					targetDepot = FindDepot();
 					
-					// Find a new depot
-					ResourceDepot[] depotList = GameObject.FindObjectsOfType(typeof(ResourceDepot)) as ResourceDepot[];
-					ResourceDepot closestDepot = depotList[0];
-					float closestDistance = Vector3.Distance(transform.position, closestDepot.transform.position);
-					foreach(ResourceDepot depot in depotList)
-					{
-						// Check if the next depot is full and closer than the last depot
-						if(!depot.AtCapacity() && (closestDistance > Vector3.Distance(transform.position, depot.transform.position)))
-						{
-							closestDepot = depot;
-						}
-					}
-					
-					// Assign the new depot
-					
-					// Check to see if the defaulted first depot in the list is not full if that happens to have been the only one available
-					if(closestDepot.AtCapacity())
-					{
-						// Closest depot is full and there are no others. Stop everything. 
-						targetDepot = null;	
-						Debug.Log("Everything is terrible D:");
+					// If we didn't get a valid depot back then stop everything
+					if(targetDepot == null)
 						return;
-					}
-					
-						// All is well, proceed to assign the new depot
-						targetDepot = closestDepot;
 				}
 				
 				// Head back to the depot
@@ -105,10 +82,26 @@ public class Harvester : MonoBehaviour {
 				// Drop off the load
 				resourceStore = ((ResourceDepot)targetDepot.GetComponent("ResourceDepot")).DropOff(resourceStore);
 				
-				// Head back to the resource 
-				unitComponent.SetNavTarget(targetResource.gameObject);
-				
-				//Debug.Log("Pathing back to resource");
+				// Check if we have any load left over (the depot is full)
+				if(resourceStore > 0)
+				{
+					Debug.Log("Got Excess load");
+					// We need to go look for a new depot
+					targetDepot = FindDepot();
+					
+					// If we didn't get a valid depot back then stop everything
+					if(targetDepot == null)
+						return;
+					
+					// Head back to the other depot
+					unitComponent.SetNavTarget(targetDepot.gameObject);
+				}
+				else
+				{
+					Debug.Log(resourceStore + " is less than or equil to 0");
+					// Head back to the resource 
+					unitComponent.SetNavTarget(targetResource.gameObject);
+				}
 			}
 		}
 	}
@@ -122,6 +115,36 @@ public class Harvester : MonoBehaviour {
 		else if(targetObject.GetComponent("ResourceDepot"))
 		{
 			targetDepot = targetObject.GetComponent("ResourceDepot") as ResourceDepot;
+		}
+	}
+	
+	// Find a new depot
+	ResourceDepot FindDepot()
+	{
+		ResourceDepot[] depotList = GameObject.FindObjectsOfType(typeof(ResourceDepot)) as ResourceDepot[];
+		ResourceDepot closestDepot = depotList[0];
+		float closestDistance = Vector3.Distance(transform.position, closestDepot.transform.position);
+		foreach(ResourceDepot depot in depotList)
+		{
+			// Check if the next depot is full and closer than the last depot
+			if(!depot.AtCapacity() && (closestDistance > Vector3.Distance(transform.position, depot.transform.position)))
+			{
+				closestDepot = depot;
+			}
+		}
+		
+		// Assign the new depot
+		
+		// Check to see if the defaulted first depot in the list is not full if that happens to have been the only one available
+		if(closestDepot.AtCapacity())
+		{
+			// Closest depot is full and there are no others. Stop everything. 
+			Debug.Log("Everything is terrible D:");
+			return null;
+		}
+		else
+		{
+			return closestDepot;
 		}
 	}
 }
