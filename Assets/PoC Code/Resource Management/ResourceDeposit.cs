@@ -24,6 +24,8 @@ public class ResourceDeposit : MonoBehaviour
 		// Check for are right-click
 		if(Input.GetMouseButtonUp(1))
 		{
+			Debug.Log("Resource clicked");
+			
 			// Transmit the location
 			gameManager.GetUserInterface().GetCurrentTool().Click(this.gameObject, this.transform.position, true);
 		}
