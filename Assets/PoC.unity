@@ -1424,6 +1424,7 @@ GameObject:
   - 114: {fileID: 1708355682}
   - 154: {fileID: 1708355681}
   - 114: {fileID: 1708355684}
+  - 114: {fileID: 1708355685}
   m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
@@ -1492,6 +1493,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 2078347359}
   hitPoint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708355685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1708355680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ccc25bf01767e944a5c933de4630efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1760867492
 GameObject:
   m_ObjectHideFlags: 0
