@@ -41,7 +41,17 @@ public class TerrainInitaliser : MonoBehaviour
 			}
 			
 			// Set the properties
-			newTree.transform.position = tree.position;
+			Vector3 newPos = new Vector3(
+				Terrain.activeTerrain.terrainData.size.x * tree.position.x, 
+				Terrain.activeTerrain.terrainData.size.y * tree.position.y, 
+				Terrain.activeTerrain.terrainData.size.z * tree.position.z
+			);
+			
+			newTree.transform.position = newPos;
+			
+			//newTree.transform.position.x = Terrain.activeTerrain.terrainData.size.x * tree.position.x;
+			//newTree.transform.position.y = Terrain.activeTerrain.terrainData.size.y * tree.position.y;
+			//newTree.transform.position.z = Terrain.activeTerrain.terrainData.size.z * tree.position.z;
 		}
 		
 		//TreeInstance[] nulltrees;
