@@ -7,22 +7,22 @@ using System.Collections;
 public class TerrainInitaliser : MonoBehaviour 
 {
 	// Put as many of the variables into the start function as possible after- they are only needed at the start. 
-	public TreeInstance[] trees;
 	public ArrayList treeArray;
 	
 	// Use this for initialization
 	void Start () 
 	{
 		// Grab the tree array from the terrain
-		trees = Terrain.activeTerrain.terrainData.treeInstances;
-		//treeArray.AddRange(Terrain.activeTerrain.terrainData.treeInstances);
+		treeArray = new ArrayList(Terrain.activeTerrain.terrainData.treeInstances);
+		int originalCount = treeArray.Count -1;
+		Debug.Log("Tree instances: " + originalCount);
 		
 		// Substitute all the trees for game objects
-		foreach(TreeInstance tree in trees)
+		for(int i = 0; i <= originalCount; i++)
 		{
 			GameObject newTree = null;
 			
-			switch(tree.prototypeIndex)
+			switch(((TreeInstance)treeArray[0]).prototypeIndex)
 			{
 				case 0 : 
 				{
@@ -41,25 +41,26 @@ public class TerrainInitaliser : MonoBehaviour
 			}
 			
 			// Set the properties
-			Vector3 newPos = new Vector3(
-				Terrain.activeTerrain.terrainData.size.x * tree.position.x, 
-				Terrain.activeTerrain.terrainData.size.y * tree.position.y, 
-				Terrain.activeTerrain.terrainData.size.z * tree.position.z
+			newTree.transform.position = new Vector3(
+				Terrain.activeTerrain.terrainData.size.x * ((TreeInstance)treeArray[0]).position.x, 
+				Terrain.activeTerrain.terrainData.size.y * ((TreeInstance)treeArray[0]).position.y, 
+				Terrain.activeTerrain.terrainData.size.z * ((TreeInstance)treeArray[0]).position.z
 			);
 			
-			newTree.transform.position = newPos;
+			newTree.transform.localScale = new Vector3(
+				((TreeInstance)treeArray[0]).widthScale, 
+				((TreeInstance)treeArray[0]).heightScale, 
+				((TreeInstance)treeArray[0]).widthScale
+			);
 			
-			//newTree.transform.position.x = Terrain.activeTerrain.terrainData.size.x * tree.position.x;
-			//newTree.transform.position.y = Terrain.activeTerrain.terrainData.size.y * tree.position.y;
-			//newTree.transform.position.z = Terrain.activeTerrain.terrainData.size.z * tree.position.z;
+			// Remove this tree
+			treeArray.RemoveAt(0);
 		}
 		
-		//TreeInstance[] nulltrees;
-		//treeArray.Clear();
-		trees.Initialize();
-		
 		// Remove the built-in trees from the terrain
-		Terrain.activeTerrain.terrainData.treeInstances.Initialize();// = trees;
+		TreeInstance[] tmpArray = new TreeInstance[0];
+		treeArray.CopyTo(tmpArray);
+		Terrain.activeTerrain.terrainData.treeInstances = tmpArray;
 		
 		// Refresh the terrain
 		float[,] heights = Terrain.activeTerrain.terrainData.GetHeights(0, 0, 0, 0);
