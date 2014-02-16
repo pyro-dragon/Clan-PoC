@@ -49,15 +49,15 @@ public class ResourceDepot : MonoBehaviour
 	// Check if we are at capacity
 	public bool AtCapacity()
 	{
-		Debug.Log("Checking capacity");
+		//Debug.Log("Checking capacity");
 		if(storedResource == capacity)
 		{
-			Debug.Log("storedResource is equel to capacity");
+			//Debug.Log("storedResource is equel to capacity");
 			return true;
 		}
 		else
 		{
-			Debug.Log("stored = " + storedResource + "\ncapacity = " + capacity);
+			//Debug.Log("stored = " + storedResource + "\ncapacity = " + capacity);
 			return false;
 		}
 	}

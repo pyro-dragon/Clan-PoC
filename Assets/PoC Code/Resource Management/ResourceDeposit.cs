@@ -16,7 +16,12 @@ public class ResourceDeposit : MonoBehaviour
 	// Update is called once per frame
 	void Update() 
 	{
-	
+		// Check if we still have any resources left
+		if(resourceRemaining <= 0)
+		{
+			Debug.Log("Removing resource");
+			Destroy(this.gameObject);
+		}
 	}
 	
 	public void OnMouseOver()

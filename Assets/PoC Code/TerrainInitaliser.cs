@@ -15,7 +15,7 @@ public class TerrainInitaliser : MonoBehaviour
 		// Grab the tree array from the terrain
 		treeArray = new ArrayList(Terrain.activeTerrain.terrainData.treeInstances);
 		int originalCount = treeArray.Count -1;
-		Debug.Log("Tree instances: " + originalCount);
+		//Debug.Log("Tree instances: " + originalCount);
 		
 		// Substitute all the trees for game objects
 		for(int i = 0; i <= originalCount; i++)
@@ -66,6 +66,6 @@ public class TerrainInitaliser : MonoBehaviour
 		float[,] heights = Terrain.activeTerrain.terrainData.GetHeights(0, 0, 0, 0);
 		Terrain.activeTerrain.terrainData.SetHeights(0, 0, heights);
 		
-		Debug.Log("Done");
+		//Debug.Log("Done");
 	}
 }

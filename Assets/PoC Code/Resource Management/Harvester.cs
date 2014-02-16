@@ -6,18 +6,18 @@ public class Harvester : MonoBehaviour {
 	// Harvester cycle: 
 	// 1. Go to resource deposit
 	// 2. Check if resource is still available
-	// 	2a. If yes, collect resource packet then go to 3. 
-	// 	2b. If no, scan for nearby resources then go to 1. 
+	// 	  2a. If yes, collect resource packet then go to 3. 
+	// 	  2b. If no, scan for nearby resources then go to 1. 
 	// 3. Is harvester full?
-	// 	3a. If yes, go to 4.
-	// 	3b. If no, got to 2. 
+	// 	  3a. If yes, go to 4.
+	// 	  3b. If no, got to 2. 
 	// 4. Return to depot. 
 	// 5. Check if we can deposit
-	// 	5a. If yes, deposit resource then go to 6. 
-	// 	5b. If no, search for another depot then go to 4. 
+	// 	  5a. If yes, deposit resource then go to 6. 
+	//    5b. If no, search for another depot then go to 4. 
 	// 6. Is harvester empty?
-	//	6a. If yes, go to 1. 
-	// 	6b. If no, go to 5. 
+	//	  6a. If yes, go to 1. 
+	// 	  6b. If no, go to 5. 
 	
 	public ResourceDeposit targetResource;	// The currently targeted resource point
 	public ResourceDepot targetDepot;		// The currently used resource depot. 
@@ -27,11 +27,15 @@ public class Harvester : MonoBehaviour {
 	public string resourceType;
 	
 	public Unit unitComponent;	// The unit component
-	public bool harvesting;		// Are we currently harvesting?
+	public bool harvesting;		// Are we currently harvesting?	Obsolete now I think
+	
+	public Vector3 resourceTargetPosition;	// Used to track the location of the resource we are currently harvesting. It is used to find nearby resources should this one expire. 
+	public float resourceGatherRange;		// The distance from the original resource to search
 	
 	// Use this for initialization
 	void Start () {
 		unitComponent = this.gameObject.GetComponent("Unit") as Unit;
+		resourceGatherRange = 10.0f;
 		
 		// Add the deligates
 		unitComponent.pathComplete += PathComplete;
@@ -55,8 +59,6 @@ public class Harvester : MonoBehaviour {
 	{
 		if(navTarget!= null)
 		{
-			//Debug.Log("Nav Target not null");
-			
 			if(navTarget.GetComponent("ResourceDeposit"))
 			{
 				// Take resources from the resource deposit
@@ -85,7 +87,7 @@ public class Harvester : MonoBehaviour {
 				// Check if we have any load left over (the depot is full)
 				if(resourceStore > 0)
 				{
-					Debug.Log("Got Excess load");
+					//Debug.Log("Got Excess load");
 					// We need to go look for a new depot
 					targetDepot = FindDepot();
 					
@@ -98,7 +100,17 @@ public class Harvester : MonoBehaviour {
 				}
 				else
 				{
-					Debug.Log(resourceStore + " is less than or equil to 0");
+					// Check if the current resource is still there
+					if(targetResource == null)
+					{
+						// It isn't look for a nearby resource to get instead
+						targetResource = FindDeposit();
+						
+						// Check if we actully have a new resource
+						if(targetResource == null)
+							return;	// Stop everything, there is no resource
+					}
+					
 					// Head back to the resource 
 					unitComponent.SetNavTarget(targetResource.gameObject);
 				}
@@ -106,11 +118,13 @@ public class Harvester : MonoBehaviour {
 		}
 	}
 	
+	// Deligate to determine what was selected as a target by the unit
 	void TargetSet(GameObject targetObject)
 	{
 		if(targetObject.GetComponent("ResourceDeposit"))
 		{
 			targetResource = targetObject.GetComponent("ResourceDeposit") as ResourceDeposit;
+			resourceTargetPosition = targetObject.transform.position;
 		}
 		else if(targetObject.GetComponent("ResourceDepot"))
 		{
@@ -139,12 +153,56 @@ public class Harvester : MonoBehaviour {
 		if(closestDepot.AtCapacity())
 		{
 			// Closest depot is full and there are no others. Stop everything. 
-			Debug.Log("Everything is terrible D:");
+			//Debug.Log("Everything is terrible D:");
 			return null;
 		}
 		else
 		{
 			return closestDepot;
 		}
+	}
+	
+	// Find new resources
+	ResourceDeposit FindDeposit()
+	{
+		Debug.Log("Finding a new deposit");
+		
+		// Place a collision sphere to get a list of nearby resource deposits (by collider)
+		Collider[] hitColliders = Physics.OverlapSphere(resourceTargetPosition, resourceGatherRange);
+		ResourceDeposit closestDeposit = null;	// The closest deposit to the last location
+		float closestDistance = 0.0f;
+		
+		// Find the closest resource
+		foreach(Collider hitCollider in hitColliders)
+		{
+			Debug.Log("Getting a new collider");
+			ResourceDeposit tempResource;
+			
+			// Check if the collider is a resource deposit
+			if(tempResource = hitCollider.GetComponent("ResourceDeposit") as ResourceDeposit)
+			{
+				Debug.Log("The collider is a resource deposit");
+				// Set the resource if we don't have one yet
+				if(closestDeposit == null)
+				{
+					Debug.Log("Setting the first resource");
+					closestDeposit = tempResource;
+					closestDistance = Vector3.Distance(transform.position, tempResource.transform.position);
+				}
+				else
+				{
+					Debug.Log("Comparing distances");
+					// Ok, the closest resource is defined, check the distance
+					if(closestDistance > Vector3.Distance(transform.position, tempResource.transform.position))
+					{
+						Debug.Log("Setting new closest resource");
+						closestDeposit = tempResource;
+					}
+				}
+			}
+		}
+		
+		// Return the new deposit (or null if one is not found)
+		return closestDeposit;
 	}
 }
