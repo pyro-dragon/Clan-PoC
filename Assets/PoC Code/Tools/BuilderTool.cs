@@ -12,7 +12,17 @@ public class BuilderTool : PointerTool
 		name = "Builder Tool";
 		
 		// Set the wood shack as the default start building
-		currentBuilding = GameObject.Instantiate(Resources.Load("Thatched cottages/Thatched cottages")) as GameObject;
+		currentBuilding = GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject;
+	}
+	
+	public override void SwitchTo()
+	{
+		// Turn on terrain passthrough
+	}
+	
+	public override void SwitchAway()
+	{
+		// Turn off terrain passthrough
 	}
 		
 	// A general click command
@@ -29,9 +39,9 @@ public class BuilderTool : PointerTool
 		}
 	}
 	
-	public override void MouseOver(GameObject gameObject, Vector3 position)
+	public override void MouseMove(GameObject gameObject, Vector3 position)
 	{
-		
+		currentBuilding.transform.position = position;
 	}
 	
 	public override void MouseExit(GameObject gameObject, Vector3 position)

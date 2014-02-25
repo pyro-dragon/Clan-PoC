@@ -38,7 +38,9 @@ public class Interface
 		if(toolList.ContainsKey(toolName))
 		{
 			Debug.Log("Tool exists, switching to tool " + toolName);
+			currentTool.SwitchAway();
 			currentToolName = toolName;
+			currentTool.SwitchTo();
 			return true;
 		}
 		else

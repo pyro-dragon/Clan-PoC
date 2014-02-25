@@ -17,6 +17,16 @@ public class SelecterTool : PointerTool
 		// Intitalise the target prefab
 		targetMarker = GameObject.Instantiate(Resources.Load("TargetPrefab")) as GameObject;
 	}
+	
+	public override void SwitchTo()
+	{
+		
+	}
+	
+	public override void SwitchFrom()
+	{
+		
+	}
 		
 	// A general click function
 	public override void Click(GameObject gameObject, Vector3 position, bool rightClick)
@@ -72,7 +82,7 @@ public class SelecterTool : PointerTool
 		}
 	}
 	
-	public override void MouseOver(GameObject gameObject, Vector3 position)
+	public override void MouseMove(GameObject gameObject, Vector3 position)
 	{
 		
 	}
