@@ -23,7 +23,7 @@ public class SelecterTool : PointerTool
 		
 	}
 	
-	public override void SwitchFrom()
+	public override void SwitchAway()
 	{
 		
 	}
