@@ -1,11 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\CursorInteractor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\Tools\SelecterTool.cs">
     <Files>
-      <File FileName="Assets\PoC Code\CursorInteractor.cs" Line="24" Column="47" />
-      <File FileName="Assets\Standard Assets (Mobile)\Scripts\Joystick.js" Line="90" Column="1" />
-      <File FileName="Assets\PoC Code\Tools\SelecterTool.cs" Line="26" Column="33" />
-      <File FileName="Assets\PoC Code\Tools\PointerTool.cs" Line="10" Column="33" />
+      <File FileName="Assets\PoC Code\UserInterface.cs" Line="79" Column="1" />
+      <File FileName="Assets\PoC Code\CursorInteractor.cs" Line="13" Column="5" />
+      <File FileName="Assets\PoC Code\GameManager.cs" Line="74" Column="13" />
+      <File FileName="Assets\PoC Code\Tools\BuilderTool.cs" Line="52" Column="17" />
+      <File FileName="Assets\PoC Code\Tools\PointerTool.cs" Line="18" Column="17" />
+      <File FileName="Assets\PoC Code\Tools\SelecterTool.cs" Line="118" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,17 +15,9 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="PoC Code" expanded="True">
-                <Node name="Building" expanded="True" />
-                <Node name="Resource Management" expanded="True" />
-                <Node name="Tools" expanded="True" />
-                <Node name="CursorInteractor.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-          <Node name="Assembly-UnityScript" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Standard Assets (Mobile)" expanded="True">
-                <Node name="Scripts" expanded="True" />
+                <Node name="Tools" expanded="True">
+                  <Node name="SelecterTool.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

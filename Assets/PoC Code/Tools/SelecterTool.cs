@@ -114,4 +114,6 @@ public class SelecterTool : PointerTool
 		//if(selectedObject)
 		//	selectedObject.SetNewTarget(location);
 	}
+	
+	public override void Update(RaycastHit[] hits, Vector3 terrainPoint){}
 }

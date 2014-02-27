@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour 
@@ -8,13 +8,13 @@ public class GameManager : MonoBehaviour
 	public Unit selectedUnit;
 	public GameObject selectIndicator;
 	public GameObject indicatePrefab;
-	Interface userInterface;
+	//public Interface userInterface;
+	public UserInterface userInterface;
 
 	// Use this for initialization
 	void Start () 
 	{
 		// Grab the user interface
-		userInterface = new Interface();
 	}
 	
 	// Update is called once per frame
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
 	}
 	
 	// Return a reference to the user interface
-	public Interface GetUserInterface()
+	public UserInterface GetUserInterface()
 	{
 		return userInterface;
 	}

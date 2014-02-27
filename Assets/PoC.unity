@@ -1943,6 +1943,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2078347358}
   - 114: {fileID: 2078347359}
+  - 114: {fileID: 2078347360}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1977,6 +1978,21 @@ MonoBehaviour:
   selectedUnit: {fileID: 0}
   selectIndicator: {fileID: 0}
   indicatePrefab: {fileID: 100000, guid: 9c703b07a1be78240be2a3dd1cab39f0, type: 2}
+  userInterface: {fileID: 2078347360}
+--- !u!114 &2078347360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2078347357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d7090065aa02a4f941e1cf15218623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentToolName: 
+  activeCamera: {fileID: 700206091}
+  viewDistance: 0
 --- !u!1 &2136952255
 GameObject:
   m_ObjectHideFlags: 0

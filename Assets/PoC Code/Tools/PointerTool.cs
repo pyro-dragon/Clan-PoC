@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public abstract class PointerTool
@@ -14,4 +14,6 @@ public abstract class PointerTool
 	public abstract void MouseMove(GameObject gameObject, Vector3 position);
 	
 	public abstract void MouseExit(GameObject gameObject, Vector3 position);
+	
+	public abstract void Update(RaycastHit[] hits, Vector3 terrainPoint); 
 }
