@@ -1,12 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\Tools\SelecterTool.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\UserInterface.cs">
     <Files>
-      <File FileName="Assets\PoC Code\UserInterface.cs" Line="79" Column="1" />
-      <File FileName="Assets\PoC Code\CursorInteractor.cs" Line="13" Column="5" />
-      <File FileName="Assets\PoC Code\GameManager.cs" Line="74" Column="13" />
-      <File FileName="Assets\PoC Code\Tools\BuilderTool.cs" Line="52" Column="17" />
-      <File FileName="Assets\PoC Code\Tools\PointerTool.cs" Line="18" Column="17" />
+      <File FileName="Assets\PoC Code\UserInterface.cs" Line="24" Column="34" />
+      <File FileName="Assets\PoC Code\CursorInteractor.cs" Line="1" Column="1" />
+      <File FileName="Assets\PoC Code\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\PoC Code\Tools\BuilderTool.cs" Line="1" Column="1" />
+      <File FileName="Assets\PoC Code\Tools\PointerTool.cs" Line="1" Column="1" />
       <File FileName="Assets\PoC Code\Tools\SelecterTool.cs" Line="118" Column="17" />
     </Files>
     <Pads>
@@ -15,9 +15,8 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="PoC Code" expanded="True">
-                <Node name="Tools" expanded="True">
-                  <Node name="SelecterTool.cs" selected="True" />
-                </Node>
+                <Node name="Tools" expanded="True" />
+                <Node name="UserInterface.cs" selected="True" />
               </Node>
             </Node>
           </Node>

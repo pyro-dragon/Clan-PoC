@@ -21,7 +21,7 @@ public class UserInterface : MonoBehaviour
 		selecterTool = new SelecterTool();
 		builderTool = new BuilderTool();		
 		currentTool = selecterTool;
-		viewDistance = activeCamera.nearClipPlane - activeCamera.nearClipPlane;
+		viewDistance = activeCamera.farClipPlane - activeCamera.nearClipPlane;
 	}
 	
 	// Update is called once per frame
