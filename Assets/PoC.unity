@@ -1993,6 +1993,7 @@ MonoBehaviour:
   currentToolName: 
   activeCamera: {fileID: 700206091}
   viewDistance: 0
+  hitStatus: 0
 --- !u!1 &2136952255
 GameObject:
   m_ObjectHideFlags: 0

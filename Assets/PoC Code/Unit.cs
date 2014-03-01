@@ -37,14 +37,14 @@ public class Unit : MonoBehaviour
 	}
 	
 	// When the mouse is clicked over the unit
-	public void OnMouseUp()
-	{
+	//public void OnMouseUp()
+	//{
 		//print("Unit clicked! {UP}");
 		
 		//gameManager.SetSelected(this);
 		//gameManager.GetUserInterface().GetCurrentTool().UnitClicked(this, false);
-		gameManager.GetUserInterface().GetCurrentTool().Click(this.gameObject, this.transform.position, false);
-	}
+	//	gameManager.GetUserInterface().GetCurrentTool().Click(this.gameObject, this.transform.position, false);
+	//}
 	
 	// The function to perform when a valid path is found
 	public void OnPathComplete (Path p) 

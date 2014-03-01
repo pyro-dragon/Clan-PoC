@@ -115,5 +115,37 @@ public class SelecterTool : PointerTool
 		//	selectedObject.SetNewTarget(location);
 	}
 	
-	public override void Update(RaycastHit[] hits, Vector3 terrainPoint){}
+	// Update the tool
+	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus)
+	{
+		// Check for mouse button input
+		if(Input.GetMouseButtonUp(0))	// Left button released
+		{
+			// Check if the target contains a unit
+			if(hitStatus && target.collider.gameObject.GetComponent("Unit"))
+			{
+				// Remove current selection
+				Deselect();
+				
+				// Set the selected object
+				selectedUnit = target.collider.gameObject.GetComponent("Unit") as Unit;
+				
+				// Create a new indicator
+				indicator = GameObject.Instantiate(Resources.Load("IndicatorPrefab")) as GameObject;
+				
+				// Set the indicator as a member of the selected unit
+				indicator.transform.position = selectedUnit.transform.position;
+				indicator.transform.parent = selectedUnit.transform;
+			}
+			else	// No unit was selected so deselect
+			{
+				Deselect();
+			}
+		}
+		else if(Input.GetMouseButtonUp(1))	// Right button released
+		{
+			// Set the target location
+			SetTarget(terrainPoint);
+		}
+	}
 }

@@ -49,5 +49,5 @@ public class BuilderTool : PointerTool
 		
 	}
 	
-	public override void Update(RaycastHit[] hits, Vector3 terrainPoint){}
+	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus){}
 }
