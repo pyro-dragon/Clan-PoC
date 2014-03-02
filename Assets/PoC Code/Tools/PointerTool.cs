@@ -5,7 +5,7 @@ public abstract class PointerTool
 {
 	public string name;
 	
-	public abstract void SwitchTo();
+	/*public abstract void SwitchTo();
 	
 	public abstract void SwitchAway();
 	
@@ -13,7 +13,7 @@ public abstract class PointerTool
 	
 	public abstract void MouseMove(GameObject gameObject, Vector3 position);
 	
-	public abstract void MouseExit(GameObject gameObject, Vector3 position);
+	public abstract void MouseExit(GameObject gameObject, Vector3 position);*/
 	
 	public abstract void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus); 
 }

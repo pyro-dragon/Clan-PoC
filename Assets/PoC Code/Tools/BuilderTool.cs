@@ -15,7 +15,7 @@ public class BuilderTool : PointerTool
 		currentBuilding = GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject;
 	}
 	
-	public override void SwitchTo()
+	/*public override void SwitchTo()
 	{
 		// Turn on terrain passthrough
 	}
@@ -47,7 +47,7 @@ public class BuilderTool : PointerTool
 	public override void MouseExit(GameObject gameObject, Vector3 position)
 	{
 		
-	}
+	}*/
 	
 	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus){}
 }

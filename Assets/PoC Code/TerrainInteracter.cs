@@ -19,7 +19,7 @@ public class TerrainInteracter : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(passthrough)
+		/*if(passthrough)
 		{
 			// Check for left click
 			if(Input.GetMouseButtonUp(0))
@@ -39,10 +39,10 @@ public class TerrainInteracter : MonoBehaviour
 				// Just send the mouse position
 				manager.GetUserInterface().GetCurrentTool().MouseMove(this.gameObject, GetIntersectionPoint());
 			}
-		}
+		}*/
 	}
 	
-	public void OnMouseOver()
+	/*public void OnMouseOver()
 	{
 		if(!passthrough)
 		{
@@ -67,7 +67,7 @@ public class TerrainInteracter : MonoBehaviour
 			// Left-click on the terrain- deselect whatever is selected
 			manager.GetUserInterface().GetCurrentTool().Click(this.gameObject, GetIntersectionPoint(), false);
 		}
-	}
+	}*/
 	
 	// Set the passthrough option
 	void SetPassthrough(bool passthrough)

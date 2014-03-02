@@ -1,23 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\Tools\SelecterTool.cs">
-    <Files>
-      <File FileName="Assets\PoC Code\UserInterface.cs" Line="44" Column="57" />
-      <File FileName="Assets\PoC Code\CursorInteractor.cs" Line="1" Column="1" />
-      <File FileName="Assets\PoC Code\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\PoC Code\Tools\BuilderTool.cs" Line="52" Column="76" />
-      <File FileName="Assets\PoC Code\Tools\PointerTool.cs" Line="18" Column="76" />
-      <File FileName="Assets\PoC Code\Tools\SelecterTool.cs" Line="125" Column="17" />
-      <File FileName="Assets\PoC Code\Unit.cs" Line="47" Column="4" />
-    </Files>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="PoC Code" expanded="True">
-                <Node name="Tools" expanded="True">
-                  <Node name="SelecterTool.cs" selected="True" />
+            <Node name="PoC Code" expanded="True">
+              <Node name="Resource Management" expanded="True" />
+              <Node name="Tools" expanded="True" />
+              <Node name="TerrainInteracter.cs" selected="True" />
+            </Node>
+          </Node>
+          <Node name="Assembly-CSharp-firstpass" expanded="True">
+            <Node name="Plugins" expanded="True">
+              <Node name="AstarPathfindingProject" expanded="True">
+                <Node name="Core" expanded="True">
+                  <Node name="AI" expanded="True" />
                 </Node>
               </Node>
             </Node>

@@ -78,6 +78,8 @@ public class Unit : MonoBehaviour
 			
 			if(pathComplete != null)
 				pathComplete(navTarget);
+			else
+				Debug.Log("PathComplete is null");
 			return;
 		}
 		
@@ -136,14 +138,4 @@ public class Unit : MonoBehaviour
 			targetSet(navTarget);
 		}
 	}
-	
-	// Set a new target location (obsolete)
-	//public void SetNewTarget(Vector3 target)
-	//{
-		// Set the target position
-	//	targetPosition = target;
-		
-		// Create a new path
-	//	seeker.StartPath(transform.position, targetPosition, OnPathComplete);
-	//}
 }

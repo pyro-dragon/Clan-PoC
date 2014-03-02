@@ -17,19 +17,9 @@ public class SelecterTool : PointerTool
 		// Intitalise the target prefab
 		targetMarker = GameObject.Instantiate(Resources.Load("TargetPrefab")) as GameObject;
 	}
-	
-	public override void SwitchTo()
-	{
-		
-	}
-	
-	public override void SwitchAway()
-	{
-		
-	}
 		
 	// A general click function
-	public override void Click(GameObject gameObject, Vector3 position, bool rightClick)
+	/*public override void Click(GameObject gameObject, Vector3 position, bool rightClick)
 	{
 		// Check if we have selected a unit
 		if(gameObject.GetComponent("Unit"))
@@ -90,7 +80,7 @@ public class SelecterTool : PointerTool
 	public override void MouseExit(GameObject gameObject, Vector3 position)
 	{
 		
-	}
+	}*/
 		
 	// Deselect the current unit
 	void Deselect()
@@ -114,6 +104,12 @@ public class SelecterTool : PointerTool
 		//if(selectedObject)
 		//	selectedObject.SetNewTarget(location);
 	}
+
+	// Set the navigation target object
+	void SetTargetObject(GameObject gameObject)
+	{
+		
+	}
 	
 	// Update the tool
 	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus)
@@ -124,6 +120,8 @@ public class SelecterTool : PointerTool
 			// Check if the target contains a unit
 			if(hitStatus && target.collider.gameObject.GetComponent("Unit"))
 			{
+				Debug.Log("unit selected");
+				
 				// Remove current selection
 				Deselect();
 				
@@ -137,6 +135,10 @@ public class SelecterTool : PointerTool
 				indicator.transform.position = selectedUnit.transform.position;
 				indicator.transform.parent = selectedUnit.transform;
 			}
+			else if(hitStatus && target.collider.gameObject.GetComponent("ResourceDeposit"))
+			{
+				
+			}
 			else	// No unit was selected so deselect
 			{
 				Deselect();
@@ -144,8 +146,17 @@ public class SelecterTool : PointerTool
 		}
 		else if(Input.GetMouseButtonUp(1))	// Right button released
 		{
-			// Set the target location
-			SetTarget(terrainPoint);
+			if(hitStatus && target.collider.gameObject.GetComponent("ResourceDeposit"))
+			{
+				Debug.Log("Resource targeted");
+				//SetTarget(target.transform.position);
+				selectedUnit.SetNavTarget(target.collider.gameObject);
+			}
+			else
+			{
+				// Set the target location
+				SetTarget(terrainPoint);
+			}
 		}
 	}
 }

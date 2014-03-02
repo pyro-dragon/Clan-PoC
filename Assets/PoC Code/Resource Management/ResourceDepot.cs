@@ -18,7 +18,7 @@ public class ResourceDepot : MonoBehaviour
 	
 	}
 	
-	public void OnMouseOver()
+	/*public void OnMouseOver()
 	{
 		// Check for are right-click
 		if(Input.GetMouseButtonUp(1))
@@ -26,7 +26,7 @@ public class ResourceDepot : MonoBehaviour
 			// Transmit the location
 			gameManager.GetUserInterface().GetCurrentTool().Click(this.gameObject, this.transform.position, true);
 		}
-	}
+	}*/
 	
 	// Receive resources and put them in the inventory, reterning any that are abouve the capacity. 
 	public int DropOff(int resourceAmount)

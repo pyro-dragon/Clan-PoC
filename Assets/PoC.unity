@@ -4,13 +4,12 @@
 SceneSettings:
   m_ObjectHideFlags: 0
   m_PVSData: 
-  m_QueryMode: 1
   m_PVSObjectsArray: []
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
-    viewCellSize: 1
-    bakeMode: 2
-    memoryUsage: 10485760
+    smallestOccluder: 5
+    smallestHole: .25
+    backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_Fog: 1
@@ -23,6 +22,7 @@ RenderSettings:
   m_SkyboxMaterial: {fileID: 2100000, guid: da976b1a4f7ebb949b0f71341e4f1821, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
@@ -185,6 +185,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &175202392
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -244,6 +247,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!143 &277355514
 CharacterController:
   m_ObjectHideFlags: 0
@@ -317,12 +323,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetResource: {fileID: 0}
   targetDepot: {fileID: 0}
-  resourceStore: 0
-  resourceType: 
   unitComponent: {fileID: 0}
   harvesting: 0
-  resourceTargetPosition: {x: 0, y: 0, z: 0}
-  resourceGatherRange: 0
 --- !u!114 &277355519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +397,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!65 &278542420
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -491,6 +496,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &564710128
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -645,6 +653,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!65 &655280751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -731,6 +742,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &672701130
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -819,6 +833,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
+  m_OcclusionCulling: 1
 --- !u!4 &700206092
 Transform:
   m_ObjectHideFlags: 0
@@ -836,7 +851,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 700206087}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8adff85035f8164da26f88183bd6fab, type: 3}
   m_Name: 
@@ -949,6 +964,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!65 &793167705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1085,6 +1103,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &832117257
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1436,9 +1457,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
-  m_UserAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!64 &1619847136
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1472,6 +1490,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &1619847138
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1530,7 +1551,6 @@ TerrainCollider:
     type: 2}
   m_PrefabInternal: {fileID: 610273484}
   m_GameObject: {fileID: 1708355680}
-  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 4ce787c7d2d83904091546aff77bf3aa, type: 2}
@@ -1676,6 +1696,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!65 &1760867494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1772,6 +1795,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!65 &1875153386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1849,6 +1875,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!65 &1905225938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1904,6 +1933,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!65 &1924487815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2062,6 +2094,9 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!33 &2136952259
 MeshFilter:
   m_ObjectHideFlags: 0
