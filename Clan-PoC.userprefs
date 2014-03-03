@@ -1,14 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\Tools\BuilderTool.cs">
+    <Files>
+      <File FileName="Assets\PoC Code\Tools\BuilderTool.cs" Line="55" Column="3" />
+      <File FileName="Assets\PoC Code\Tools\BuilderTool.cs" Line="62" Column="3" />
+      <File FileName="Assets\PoC Code\UserInterface.cs" Line="65" Column="58" />
+      <File FileName="Assets\PoC Code\Tools\PointerTool.cs" Line="11" Column="2" />
+      <File FileName="Assets\PoC Code\Tools\SelecterTool.cs" Line="116" Column="3" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="PoC Code" expanded="True">
               <Node name="Resource Management" expanded="True" />
-              <Node name="Tools" expanded="True" />
-              <Node name="TerrainInteracter.cs" selected="True" />
+              <Node name="Tools" expanded="True">
+                <Node name="BuilderTool.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
           <Node name="Assembly-CSharp-firstpass" expanded="True">

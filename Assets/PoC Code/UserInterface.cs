@@ -43,7 +43,6 @@ public class UserInterface : MonoBehaviour
 		// Send the data to the current tool
 		currentTool.Update(target, terrainHit.point, hitStatus);
 		
-		
 		// Debug- draw the ray
 		Debug.DrawRay(ray.origin, ray.direction * viewDistance, Color.yellow, 0, true);
 	}
@@ -61,9 +60,10 @@ public class UserInterface : MonoBehaviour
 		if(toolList.ContainsKey(toolName))
 		{
 			Debug.Log("Tool exists, switching to tool " + toolName);
-			//currentTool.SwitchAway();
+			currentTool.Deactivate();
 			currentToolName = toolName;
-			//currentTool.SwitchTo();
+			currentTool = toolList[currentToolName] as PointerTool;
+			currentTool.Activate();
 			return true;
 		}
 		else

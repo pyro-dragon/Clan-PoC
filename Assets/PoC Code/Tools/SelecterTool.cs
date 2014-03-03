@@ -110,6 +110,16 @@ public class SelecterTool : PointerTool
 	{
 		
 	}
+
+	public override void Activate ()
+	{
+
+	}
+
+	public override void Deactivate ()
+	{
+
+	}
 	
 	// Update the tool
 	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus)

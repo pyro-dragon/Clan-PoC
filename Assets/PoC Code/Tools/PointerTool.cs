@@ -14,6 +14,10 @@ public abstract class PointerTool
 	public abstract void MouseMove(GameObject gameObject, Vector3 position);
 	
 	public abstract void MouseExit(GameObject gameObject, Vector3 position);*/
+
+	public abstract void Activate();
+
+	public abstract void Deactivate();
 	
 	public abstract void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus); 
 }

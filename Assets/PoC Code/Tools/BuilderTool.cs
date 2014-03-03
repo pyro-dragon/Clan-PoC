@@ -13,6 +13,8 @@ public class BuilderTool : PointerTool
 		
 		// Set the wood shack as the default start building
 		currentBuilding = GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject;
+
+		Deactivate();
 	}
 	
 	/*public override void SwitchTo()
@@ -48,6 +50,32 @@ public class BuilderTool : PointerTool
 	{
 		
 	}*/
-	
-	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus){}
+
+	public override void Activate()
+	{
+		currentBuilding.renderer.material.color = Color.green;
+	}
+
+	public override void Deactivate()
+	{
+		currentBuilding.renderer.material.color = Color.clear;
+	}
+
+	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus)
+	{
+		// Move the footprint
+		currentBuilding.transform.position = terrainPoint;
+
+		// Check for a click
+		if(Input.GetMouseButtonUp(0)) // Left click
+		{
+			// Create a new building
+			Quaternion rotation = Quaternion.AngleAxis(270, Vector3.right);
+			GameObject testHouse = GameObject.Instantiate(Resources.Load("Thatched cottages/Thatched cottages"), terrainPoint, Quaternion.AngleAxis(270, Vector3.right)) as GameObject;
+		}
+		else if(Input.GetMouseButtonUp(1)) // Right click
+		{
+			// Switch back to select tool
+		}
+	}
 }
