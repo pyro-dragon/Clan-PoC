@@ -20,12 +20,6 @@ public class BuilderTool : PointerTool
 		validFootprintColour.a = 0.5f;
 		invalidFootprintColour = Color.red;
 		invalidFootprintColour.a = 0.5f;
-		
-		// Set the wood shack as the default start building
-		SelectNewBuilding(GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject);
-
-		// Set up the collision layers for the footprint
-
 
 		// Deactivate the tool
 		Deactivate();
@@ -33,12 +27,16 @@ public class BuilderTool : PointerTool
 
 	public override void Activate()
 	{
+		// Set the wood shack as the default start building (Replace this with something more suitable when this is a full working version)
+		SelectNewBuilding(GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject);
+
 		currentBuilding.renderer.material.color = validFootprintColour;
 	}
 
 	public override void Deactivate()
 	{
-		currentBuilding.renderer.material.color = Color.clear;
+		GameObject.Destroy(currentBuilding);
+		//currentBuilding.renderer.material.color = Color.clear;
 	}
 
 	public override void Update(RaycastHit target, Vector3 terrainPoint, bool hitStatus)
