@@ -442,6 +442,7 @@ GameObject:
   - 23: {fileID: 564710127}
   - 64: {fileID: 564710126}
   - 114: {fileID: 564710125}
+  - 114: {fileID: 564710130}
   m_Layer: 0
   m_Name: LoggingShed
   m_TagString: Untagged
@@ -518,6 +519,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 2.86138105}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &564710130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564710124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5eb8d6c265e6e349abb378304f4594f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collidedObjects: 0
 --- !u!1001 &610273484
 Prefab:
   m_ObjectHideFlags: 0
@@ -776,7 +789,6 @@ GameObject:
   - 92: {fileID: 700206090}
   - 124: {fileID: 700206089}
   - 81: {fileID: 700206088}
-  - 114: {fileID: 700206093}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -845,18 +857,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &700206093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 700206087}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8adff85035f8164da26f88183bd6fab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeCamera: {fileID: 700206091}
 --- !u!1 &782143394
 GameObject:
   m_ObjectHideFlags: 0

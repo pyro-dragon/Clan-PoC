@@ -7,12 +7,13 @@ public class BuilderTool : PointerTool
 	public GameObject currentBuilding;	// The currently selected building to place
 	public bool siteClear;				// If the proposed site of building contruction is clear or not
 
-	private validFootprintColour;
-	private invalidFootprintColour;
+	private Color validFootprintColour;
+	private Color invalidFootprintColour;
 	
 	// Constructor
 	public BuilderTool()
 	{
+		Debug.Log("Builder tool");
 		name = "Builder Tool";
 		siteClear = true;
 		validFootprintColour = Color.green;
@@ -21,7 +22,7 @@ public class BuilderTool : PointerTool
 		invalidFootprintColour.a = 0.5f;
 		
 		// Set the wood shack as the default start building
-		currentBuilding = GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject;
+		SelectNewBuilding(GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject);
 
 		Deactivate();
 	}
@@ -42,14 +43,24 @@ public class BuilderTool : PointerTool
 		currentBuilding.transform.position = terrainPoint;
 
 		// Check if the site is clear
-		//currentBuilding.collider.
+		if((currentBuilding.GetComponent("Footprint") as Footprint).Colliding())
+		{
+			siteClear = false;
+			currentBuilding.renderer.material.color = invalidFootprintColour;
+		}
+		else
+		{
+			siteClear = true;
+			currentBuilding.renderer.material.color = validFootprintColour;
+		}
+
 
 		// Check for a click
 		if(Input.GetMouseButtonUp(0) && siteClear) // Left click
 		{
 			// Create a new building
 			Quaternion rotation = Quaternion.AngleAxis(270, Vector3.right);
-			GameObject testHouse = GameObject.Instantiate(Resources.Load("Thatched cottages/Thatched cottages"), terrainPoint, Quaternion.AngleAxis(270, Vector3.right)) as GameObject;
+			GameObject testHouse = GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed"), terrainPoint, Quaternion.AngleAxis(270, Vector3.right)) as GameObject;
 		}
 		else if(Input.GetMouseButtonUp(1)) // Right click
 		{
@@ -63,11 +74,20 @@ public class BuilderTool : PointerTool
 		// Set the current building
 		currentBuilding = building;
 
+		currentBuilding.name = "Footprint";
+
 		// Set the shader
 		currentBuilding.renderer.material.color = validFootprintColour;
 		currentBuilding.renderer.material.shader = Shader.Find("Custom/Footprint");
 
 		// Set the collider
+		GameObject.Destroy(currentBuilding.collider);
 		currentBuilding.AddComponent("BoxCollider");
+		currentBuilding.collider.isTrigger = true;		// Doesn't seem to work
+		currentBuilding.AddComponent("Footprint");
+
+		// Add a rigid body to allow trigger events
+		currentBuilding.AddComponent("Rigidbody");
+		currentBuilding.rigidbody.isKinematic = true;
 	}
 }

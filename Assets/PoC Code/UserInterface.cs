@@ -3,8 +3,6 @@ using System.Collections;
 
 public class UserInterface : MonoBehaviour 
 {
-	public SelecterTool selecterTool;	// The selecter tool
-	public BuilderTool builderTool;		// The builder tool
 	public PointerTool currentTool;		// The currently selected tool
 	public string currentToolName;		// The name of the current tool- according to the hash table
 	public Hashtable toolList;			// The list of tools available
@@ -22,9 +20,7 @@ public class UserInterface : MonoBehaviour
 		toolList.Add("select", new SelecterTool());
 		toolList.Add("build", new BuilderTool());
 		currentToolName = "select";
-		selecterTool = new SelecterTool();
-		builderTool = new BuilderTool();
-		currentTool = selecterTool;
+		currentTool = toolList[currentToolName] as PointerTool;
 		viewDistance = activeCamera.farClipPlane - activeCamera.nearClipPlane;
 	}
 	
