@@ -3,33 +3,27 @@ using System.Collections;
 
 public class Footprint : MonoBehaviour 
 {
-	//public bool colliding;
 	public int collidedObjects;
 
 	// Use this for initialization
-	void Start () 
+	IEnumerator Start () 
 	{
-		//colliding = false;
+		// These two bits used to ensure the trigger is set. 
+		yield return new WaitForFixedUpdate();
+		collider.isTrigger = true;
+
 		collidedObjects = -1;	// Take into account terrain collision
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		//colliding = true;
-		Debug.Log("Trigger Enter");
+		//Debug.Log("Trigger Enter");
 		collidedObjects++;
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		//colliding = false;
-		Debug.Log("Trigger Exit");
+		//Debug.Log("Trigger Exit");
 		collidedObjects--;
 	}
 

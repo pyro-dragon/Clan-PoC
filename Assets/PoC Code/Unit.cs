@@ -34,6 +34,9 @@ public class Unit : MonoBehaviour
 		
 		// Get reference to the CharacterController component we added earlier
 		controller = GetComponent<CharacterController>();
+
+		// Add to the correct layer
+		gameObject.layer = LayerMask.NameToLayer("Units");
 	}
 	
 	// When the mouse is clicked over the unit

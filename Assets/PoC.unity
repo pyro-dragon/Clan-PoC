@@ -530,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5eb8d6c265e6e349abb378304f4594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliding: 0
   collidedObjects: 0
 --- !u!1001 &610273484
 Prefab:

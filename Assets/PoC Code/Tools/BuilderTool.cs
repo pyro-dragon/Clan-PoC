@@ -24,6 +24,10 @@ public class BuilderTool : PointerTool
 		// Set the wood shack as the default start building
 		SelectNewBuilding(GameObject.Instantiate(Resources.Load("PoC Prefabs/LoggingShed")) as GameObject);
 
+		// Set up the collision layers for the footprint
+
+
+		// Deactivate the tool
 		Deactivate();
 	}
 
@@ -83,11 +87,15 @@ public class BuilderTool : PointerTool
 		// Set the collider
 		GameObject.Destroy(currentBuilding.collider);
 		currentBuilding.AddComponent("BoxCollider");
-		currentBuilding.collider.isTrigger = true;		// Doesn't seem to work
+		//currentBuilding.collider.isTrigger = true;		// Doesn't seem to work
 		currentBuilding.AddComponent("Footprint");
 
 		// Add a rigid body to allow trigger events
 		currentBuilding.AddComponent("Rigidbody");
 		currentBuilding.rigidbody.isKinematic = true;
+
+		// Set up layer and ignore units
+		currentBuilding.layer = LayerMask.NameToLayer("Footprint");
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Footprint"), LayerMask.NameToLayer("Units"));
 	}
 }
