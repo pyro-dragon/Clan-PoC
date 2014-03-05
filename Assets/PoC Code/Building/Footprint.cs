@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Footprint : MonoBehaviour 
+public class Footprint : MonoBehaviour
 {
 	public int collidedObjects;
+	public Ray[] corners;
 
 	// Use this for initialization
 	IEnumerator Start () 
@@ -13,6 +14,14 @@ public class Footprint : MonoBehaviour
 		collider.isTrigger = true;
 
 		collidedObjects = -1;	// Take into account terrain collision
+
+		corners = new Ray[4];
+		BoxCollider box = GetComponent("BoxCollider") as BoxCollider;
+		corners[0].origin = box.bounds.max;
+		corners[1].origin = box.bounds.min;
+
+		Debug.Log("Max bounds: " + box.bounds.max);
+		Debug.Log("Min bounds: " + box.bounds.min);
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -27,7 +36,7 @@ public class Footprint : MonoBehaviour
 		collidedObjects--;
 	}
 
-	// Uses the numbe rof enter and exits to detemine if the object is currently colliding or not	
+	// Uses the numbe rof enter and exits to detemine if the object is currently colliding or not
 	public bool Colliding()
 	{
 		if(collidedObjects > 0)
