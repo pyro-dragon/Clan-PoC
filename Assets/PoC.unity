@@ -531,6 +531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collidedObjects: 0
+  undergroundFootprint: {fileID: 0}
+  tooSteep: 0
 --- !u!1001 &610273484
 Prefab:
   m_ObjectHideFlags: 0

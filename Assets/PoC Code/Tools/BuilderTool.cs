@@ -95,5 +95,6 @@ public class BuilderTool : PointerTool
 		// Set up layer and ignore units
 		currentBuilding.layer = LayerMask.NameToLayer("Footprint");
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Footprint"), LayerMask.NameToLayer("Units"));
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Footprint"), LayerMask.NameToLayer("Ground"));
 	}
 }
