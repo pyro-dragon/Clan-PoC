@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ResourceDepot : MonoBehaviour 
+public class ResourceDepot : Building 
 {	
 	public int capacity;
 	public int storedResource;
