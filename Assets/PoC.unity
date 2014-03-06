@@ -532,6 +532,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 326220859}
   - 114: {fileID: 326220858}
+  - 114: {fileID: 326220860}
   m_Layer: 0
   m_Name: Shed
   m_TagString: Untagged
@@ -566,6 +567,19 @@ Transform:
   m_Children:
   - {fileID: 7556144}
   m_Father: {fileID: 0}
+--- !u!114 &326220860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 848b11fd1c052454c9b4931dc45e08ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1426056829}
+  m_GameObject: {fileID: 326220857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638ee6bdb5c024aef8175a890e159830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
 --- !u!1001 &610273484
 Prefab:
   m_ObjectHideFlags: 0
