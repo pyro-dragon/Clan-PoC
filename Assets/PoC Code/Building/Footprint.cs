@@ -77,7 +77,7 @@ public class Footprint : MonoBehaviour
 	}
 
 	// Uses the numbe rof enter and exits to detemine if the object is currently colliding or not
-	public bool Colliding()
+	bool Colliding()
 	{
 		if(collidedObjects > 0)
 			return true;
@@ -85,7 +85,7 @@ public class Footprint : MonoBehaviour
 			return false;
 	}
 
-	public bool CheckSite()
+	bool CheckSite()
 	{
 		
 		if (meshFilter == null)
@@ -134,5 +134,13 @@ public class Footprint : MonoBehaviour
 		}
 		
 		return true;
+	}
+
+	public bool CheckValidSite()
+	{
+		if(!Colliding() && CheckSite())
+			return true;
+		else
+			return false;
 	}
 }
