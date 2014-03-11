@@ -68,9 +68,20 @@ public class BuilderTool : PointerTool
 		}*/
 
 		if(siteClear)
-			currentBuilding.renderer.material.color = validFootprintColour;
+		{
+			for (var i = 0; i < currentBuilding.renderer.materials.Length; i++) {
+				currentBuilding.renderer.materials[i].color = validFootprintColour;
+			}
+			//currentBuilding.renderer.material.color = validFootprintColour;
+		}
+			
 		else
-			currentBuilding.renderer.material.color = invalidFootprintColour;
+		{
+			for (var i = 0; i < currentBuilding.renderer.materials.Length; i++) {
+				currentBuilding.renderer.materials[i].color = invalidFootprintColour;
+			}
+			//currentBuilding.renderer.material.color = invalidFootprintColour;
+		}
 
 		// Check for a click
 		if (Input.GetMouseButtonUp(0) && siteClear)	// Left click
@@ -90,8 +101,21 @@ public class BuilderTool : PointerTool
 	{
 		// Set the current building
 		currentBuilding = building;
-		currentBuilding.AddComponent("Footprint");
+
 		currentBuilding.name = "Footprint";
+
+		// Set the collider
+		GameObject.Destroy(currentBuilding.collider);
+		currentBuilding.AddComponent("BoxCollider");
+		currentBuilding.AddComponent("Rigidbody");
+		currentBuilding.rigidbody.isKinematic = true;
+
+		currentBuilding.AddComponent("Footprint");
+
+		// Set up layer and ignore units
+		currentBuilding.layer = LayerMask.NameToLayer("Footprint");
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Footprint"), LayerMask.NameToLayer("Units"));
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Footprint"), LayerMask.NameToLayer("Ground"));
 
 		//currentBuilding.SetValidFootPrint();
 
