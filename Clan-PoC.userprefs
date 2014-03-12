@@ -1,6 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PoC Code\CameraController.cs">
+    <Files>
+      <File FileName="Assets\PoC Code\Tools\BuilderTool.cs" Line="106" Column="60" />
+      <File FileName="Assets\PoC Code\CameraController.cs" Line="57" Column="82" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Public\Documents\Unity Projects\Clan-PoC\Assets\PoC Code\Building\Footprint.cs" line="71" />
