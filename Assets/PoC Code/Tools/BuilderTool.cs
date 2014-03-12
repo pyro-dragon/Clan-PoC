@@ -8,6 +8,7 @@ public class BuilderTool : PointerTool
 	public bool siteClear;				// If the proposed site of building contruction is clear or not
 	private Color validFootprintColour;
 	private Color invalidFootprintColour;
+	public float lastXPos;				// Used for rotating buildings
 
 	// Constructor
 	public BuilderTool()
@@ -36,6 +37,8 @@ public class BuilderTool : PointerTool
 
 		// Select a new building to place
 		SelectNewBuilding(gm);
+
+		lastXPos = 0.0f;
 	}
 
 	public override void Deactivate()
@@ -48,8 +51,18 @@ public class BuilderTool : PointerTool
 		if (currentBuilding == null)
 			return;
 
-		// Move the footprint
-		currentBuilding.transform.position = terrainPoint;
+		// Chech for rotation mode
+		if(Input.GetKey(KeyCode.LeftShift))
+		{
+			// Left shift is down, lets rotate
+			currentBuilding.transform.Rotate(Vector3.up * (Input.mousePosition.x - lastXPos));
+			Debug.Log("rotating");
+		}
+		else
+		{
+			// Left shift isn't down, just move the footprint
+			currentBuilding.transform.position = terrainPoint;
+		}
 
 		// Check if the site is clear
 		//siteClear = currentBuilding.CheckSite();
@@ -88,12 +101,14 @@ public class BuilderTool : PointerTool
 		{
 			// Create a new building
 			//Quaternion rotation = Quaternion.AngleAxis(270, Vector3.right);
-			GameObject testHouse = GameObject.Instantiate(Resources.Load("PoC Prefabs/Shack"), terrainPoint, Quaternion.identity) as GameObject;
+			GameObject testHouse = GameObject.Instantiate(Resources.Load("PoC Prefabs/Shack"), terrainPoint, currentBuilding.transform.localRotation) as GameObject;
 		}
 		else if (Input.GetMouseButtonUp(1))
 		{ // Right click
 			// Switch back to select tool
 		}
+
+		lastXPos = Input.mousePosition.x;
 	}
 	
 	// Function to switch the currently selected building and set up its shader and collider
