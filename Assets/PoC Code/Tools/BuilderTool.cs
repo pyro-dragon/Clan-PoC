@@ -100,8 +100,13 @@ public class BuilderTool : PointerTool
 		if (Input.GetMouseButtonUp(0) && siteClear)	// Left click
 		{
 			// Create a new building
-			//Quaternion rotation = Quaternion.AngleAxis(270, Vector3.right);
 			GameObject testHouse = GameObject.Instantiate(Resources.Load("PoC Prefabs/Shack"), terrainPoint, currentBuilding.transform.localRotation) as GameObject;
+
+			// Add to layer
+			currentBuilding.layer = LayerMask.NameToLayer("Obstacles");
+
+			// Update the node graph
+			AstarPath.active.UpdateGraphs(testHouse.collider.bounds);
 		}
 		else if (Input.GetMouseButtonUp(1))
 		{ // Right click
