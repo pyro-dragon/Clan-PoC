@@ -8,15 +8,15 @@ public class MainMenu : MonoBehaviour {
 	{
 		if(GUI.Button (new Rect(30, 03, 150, 30), "Start Game"))
 		{
-			startGame();
+			//startGame();
 		}
 	}
 
-	private void starGame()
+	private void startGame()
 	{
 		print("Starting game");
 
-		DontDestroyOnLoad(GameStateManager.Instantiate);
-		GameStateManager.Instantiate.startState();
+		//DontDestroyOnLoad(GameStateManager.Instantiate);
+		//GameStateManager.Instantiate.startState();
 	}
 }
