@@ -6,6 +6,7 @@ public class GameState : MonoBehaviour
 	private static GameState instance;
 
 	// Game state data
+	private string activeLevel;
 	private string playerName;
 
 	// Create an istance of GameState as a game object if instance does not exist
@@ -15,7 +16,7 @@ public class GameState : MonoBehaviour
 		{
 			if(instance == null)
 			{
-				//instance = new GameObject("GameState").AddComponent();
+				instance = new GameObject("GameState").AddComponent<GameState>();
 			}
 
 			return instance;
@@ -35,8 +36,27 @@ public class GameState : MonoBehaviour
 
 		// Set variable defaults
 		playerName = "Player 1";
+		activeLevel = "MainMenu";
 
 		// Load the level
 		Application.LoadLevel("PoC");
+	}
+
+	// Get a level
+	public string getLevel()
+	{
+		return activeLevel;
+	}
+
+	// Set the level
+	public void setLevel(string level)
+	{
+		activeLevel = level;
+	}
+
+	// Get player name
+	public string getName()
+	{
+		return name;
 	}
 }

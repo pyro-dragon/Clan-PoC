@@ -4,11 +4,14 @@ using System.Collections;
 public class MainMenu : MonoBehaviour {
 
 	// GUI code
-	void onGUI()
+	void OnGUI()
 	{
+
+
+
 		if(GUI.Button (new Rect(30, 03, 150, 30), "Start Game"))
 		{
-			//startGame();
+			this.startGame();
 		}
 	}
 
@@ -16,7 +19,7 @@ public class MainMenu : MonoBehaviour {
 	{
 		print("Starting game");
 
-		//DontDestroyOnLoad(GameStateManager.Instantiate);
-		//GameStateManager.Instantiate.startState();
+		DontDestroyOnLoad(GameState.Instance);
+		GameState.Instance.startState();
 	}
 }
