@@ -1,62 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameState : MonoBehaviour 
+// A state for the game to be in
+public class GameState 
 {
-	private static GameState instance;
+	private string stateName;	// The name of the state
 
-	// Game state data
-	private string activeLevel;
-	private string playerName;
-
-	// Create an istance of GameState as a game object if instance does not exist
-	public static GameState Instance
+	// Constructor
+	public GameState(string name)
 	{
-		get
-		{
-			if(instance == null)
-			{
-				instance = new GameObject("GameState").AddComponent<GameState>();
-			}
-
-			return instance;
-		}
+		stateName = name;
 	}
 
-	// Sets the instance to null when the application quits
-	public void OnApplicationQuit()
+	// A function to perform just before this state is transitioned away from
+	public virtual void TransitioningAway(GameState nextState)
 	{
-		instance = null;
+		
 	}
 
-	// Creates a new game state
-	public void startState()
+	// A function to perform before the state is transitioned into
+	public virtual void TransitioningTo(GameState previouseState)
 	{
-		print ("Creating a new game state");
 
-		// Set variable defaults
-		playerName = "Player 1";
-		activeLevel = "MainMenu";
-
-		// Load the level
-		Application.LoadLevel("PoC");
 	}
 
-	// Get a level
-	public string getLevel()
+	public string GetName()
 	{
-		return activeLevel;
-	}
-
-	// Set the level
-	public void setLevel(string level)
-	{
-		activeLevel = level;
-	}
-
-	// Get player name
-	public string getName()
-	{
-		return name;
+		return stateName;
 	}
 }
