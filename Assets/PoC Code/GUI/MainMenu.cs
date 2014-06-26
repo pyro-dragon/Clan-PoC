@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour {
 	void OnGUI()
 	{
 		// Menu area
-		GUI.BeginGroup (new Rect ((Screen.width/2) - 100, (Screen.height/2) - 200, 200, 400));
+		GUI.BeginGroup (new Rect ((Screen.width/2) - 100, ((Screen.height -170)/2), 200, 400));
 		
 			// We'll make a box so you can see where the group is on-screen.
 			GUI.Box(new Rect (0,0,200,170), "" );
@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour {
 	{
 		print("Starting game");
 
-		DontDestroyOnLoad(GameState.Instance);
-		GameState.Instance.startState();
+		DontDestroyOnLoad(GameStateManager.Instance);
+		GameStateManager.Instance.SetState("PlayingGame");
 	}
 }

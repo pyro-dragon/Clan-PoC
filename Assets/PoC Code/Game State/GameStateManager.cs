@@ -32,6 +32,7 @@ public class GameStateManager : MonoBehaviour
 	// Start the state manager
 	void Start () 
 	{
+		print("Init state manager");
 		playerName = "";
 		activeState = null;
 		InitialiseStates();
@@ -69,11 +70,13 @@ public class GameStateManager : MonoBehaviour
 		this.playerName = playerName;
 	}
 
+	// Return the current state
 	public GameState getCurrentState()
 	{
 		return activeState;
 	}
 
+	// Set the new state
 	public void SetState(string state)
 	{
 		activeState.TransitioningAway(stateList[state]);
